@@ -1,0 +1,108 @@
+[
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_asleep_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/expr_asleep_v0_expr_asleep_v0_00001_.png"
+  ],
+  "set": {
+   "4.image": "expr_asleep_v0_expr_asleep_v0_00001_.png",
+   "10.seed": 9600,
+   "12.filename_prefix": "fix_asleep_v0",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_asleep_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/expr_asleep_v0_expr_asleep_v0_00001_.png"
+  ],
+  "set": {
+   "4.image": "expr_asleep_v0_expr_asleep_v0_00001_.png",
+   "10.seed": 9601,
+   "12.filename_prefix": "fix_asleep_v1",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_relieved_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/expr_happy_v1_expr_happy_v1_00001_.png"
+  ],
+  "set": {
+   "4.image": "expr_happy_v1_expr_happy_v1_00001_.png",
+   "10.seed": 9600,
+   "12.filename_prefix": "fix_relieved_v0",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin, so he looks relieved and content. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_relieved_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/expr_happy_v1_expr_happy_v1_00001_.png"
+  ],
+  "set": {
+   "4.image": "expr_happy_v1_expr_happy_v1_00001_.png",
+   "10.seed": 9601,
+   "12.filename_prefix": "fix_relieved_v1",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin, so he looks relieved and content. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_s7_eyes_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7sleep1_simp002_s7sleep1_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
+   "10.seed": 9600,
+   "12.filename_prefix": "fix_s7_eyes_v0",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin, so he is fully asleep. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_s7_eyes_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7sleep1_simp002_s7sleep1_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
+   "10.seed": 9601,
+   "12.filename_prefix": "fix_s7_eyes_v1",
+   "6.prompt": "Change only the eyes: both eyes fully closed: erase the round white eyeballs and the pupils completely and draw each eye as one short downward curved black line on the yellow skin, so he is fully asleep. Keep everything else exactly the same: same face shape, hair, nose, mouth, ears, shirt, pose, background, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "pose_sleep_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9700,
+   "12.filename_prefix": "pose_sleep_v0",
+   "6.prompt": "Draw the exact character from image 1 (same brown hair with cowlick, light blue crew-neck t-shirt) in the same classic Simpsons TV animation style, asleep in a simple bed, lying on his side facing AWAY from the viewer so only the back of his head and his hair are visible, blanket pulled up to his shoulder, a green glowing piggy bank on the nightstand. Pure white background, no text, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "pose_sleep_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9701,
+   "12.filename_prefix": "pose_sleep_v1",
+   "6.prompt": "Draw the exact character from image 1 (same brown hair with cowlick, light blue crew-neck t-shirt) in the same classic Simpsons TV animation style, asleep in a simple bed, lying on his side facing AWAY from the viewer so only the back of his head and his hair are visible, blanket pulled up to his shoulder, a green glowing piggy bank on the nightstand. Pure white background, no text, no letters."
+  }
+ }
+]
