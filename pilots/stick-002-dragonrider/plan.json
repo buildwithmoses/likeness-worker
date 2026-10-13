@@ -10,8 +10,8 @@
   1080
  ],
  "sfx_volume": 0.35,
- "voice": false,
- "out": "dragonrider_v2_PREVIEW_no_voice.mp4",
+ "voice": true,
+ "out": "dragonrider_v2.mp4",
  "shots": [
   {
    "still": "drg2_bg_castle_drg2_bg_castle_00001_.png",
