@@ -1,0 +1,207 @@
+[
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_char",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_2.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin_ref_2.png",
+   "10.seed": 7001,
+   "12.filename_prefix": "fin001_char",
+   "6.prompt": "Using the art style of image 1 and image 2, draw a brand-new original character who is not the man shown: a friendly chubby man in his early 30s with short messy brown hair, a round face, big rounded chin, small nose and small dot eyes, wearing a plain light blue t-shirt and dark blue jeans and white sneakers, standing front-facing and smiling with arms relaxed, full body, centered. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s1_awake",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7100,
+   "12.filename_prefix": "fin001_s1_awake",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character lying awake in bed at night staring at his phone, which glows red, worried face, a red glowing bill floating above him. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s2_jar",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7101,
+   "12.filename_prefix": "fin001_s2_jar",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character smiling proudly while holding a large glass jar full of green cash that glows bright green. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s3_tire",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7102,
+   "12.filename_prefix": "fin001_s3_tire",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character standing next to his small car with a flat tire, hands on his head in panic, a red glowing credit card floating beside him. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s4_loan",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7103,
+   "12.filename_prefix": "fin001_s4_loan",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character handing money across a counter to a smug shady lender, red glowing dollar bills flying away from him. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s5_calm",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7104,
+   "12.filename_prefix": "fin001_s5_calm",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character calmly paying a mechanic next to a repaired car, relaxed smile, holding a small green glowing savings jar. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s6_shop",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7105,
+   "12.filename_prefix": "fin001_s6_shop",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character pushing a grocery cart in a supermarket aisle with a relaxed happy face, his phone in his pocket. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s7_sleep",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7106,
+   "12.filename_prefix": "fin001_s7_sleep",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character sleeping peacefully in bed with a content smile, a green glowing piggy bank on the nightstand. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "fin001_s8_save",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/pilots/finance-001/inputs/fin_ref_1.png",
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/fin001_char_fin001_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "fin_ref_1.png",
+   "5.image": "fin001_char_fin001_char_00001_.png",
+   "10.seed": 7107,
+   "12.filename_prefix": "fin001_s8_save",
+   "6.prompt": "Using the art style of image 1, draw the exact character from image 2 (same face, same brown hair, same light blue t-shirt and jeans) in a new scene: the character dropping a few dollar bills into a green glowing savings jar next to a wall calendar, giving a thumbs up. Plain white background, thick clean black outlines, flat colors, adult animated sitcom style, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo1",
+  "set": {
+   "2.text": "Picture this. It's payday, and by Thursday your account is already in the red. Sound familiar?",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo1"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo2",
+  "set": {
+   "2.text": "Here's what nobody tells you. The first thousand dollars you save changes more than almost any raise.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo2"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo3",
+  "set": {
+   "2.text": "Without it, every surprise is an emergency. A flat tire goes on a credit card. A doctor's bill turns into a payday loan, and that loan quietly costs you another hundred, two hundred dollars in fees.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo3"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo4",
+  "set": {
+   "2.text": "With a thousand dollars set aside, that same flat tire is just an annoying Tuesday. You pay it, and you move on. No interest. No panic.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo4"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo5",
+  "set": {
+   "2.text": "And something changes in your head, too. You stop checking your balance before every purchase. You sleep better. You start making choices instead of reacting.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo5"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo6",
+  "set": {
+   "2.text": "So start small. Twenty-five dollars a week gets you there in under ten months.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo6"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "fin001_vo7",
+  "set": {
+   "2.text": "Subscribe for part two, where we break down what changes at ten thousand.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "fin001_vo7"
+  }
+ }
+]

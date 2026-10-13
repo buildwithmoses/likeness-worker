@@ -1,0 +1,12 @@
+{"prefix": "fin001", "n_vo": 7, "gap": 0.35, "out": "finance_pilot_001.mp4",
+ "shots": [
+  {"img": "s1_awake", "start": [1, ""]},
+  {"img": "s2_jar",   "start": [2, ""]},
+  {"img": "s3_tire",  "start": [3, ""]},
+  {"img": "s4_loan",  "start": [3, "doctor's"]},
+  {"img": "s5_calm",  "start": [4, ""]},
+  {"img": "s6_shop",  "start": [5, ""]},
+  {"img": "s7_sleep", "start": [5, "sleep"]},
+  {"img": "s8_save",  "start": [6, ""]},
+  {"img": "s2_jar",   "start": [7, ""]}
+ ]}

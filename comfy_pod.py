@@ -65,7 +65,7 @@ for j in JOBS:
     if st.get("status_str") != "success":
         print(f"{j['tag']}: FAILED {json.dumps(st)[:600]}"); continue
     for out in h[pid]["outputs"].values():
-        for im in out.get("images", []):
+        for im in out.get("images", []) + out.get("audio", []) + out.get("gifs", []):
             q = urllib.parse.urlencode({"filename": im["filename"], "subfolder": im.get("subfolder", ""), "type": im["type"]})
             path = os.path.join(HERE, "outputs", f"{j['tag']}_{im['filename']}")
             open(path, "wb").write(req(f"/view?{q}"))

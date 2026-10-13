@@ -2,3 +2,5 @@
 scratch/
 inputs/
 outputs/
+pilots/*/build/
+pilots/*/*.mp4
