@@ -79,7 +79,10 @@ for j in JOBS:
     for f in j.get("upload", []):
         upload(f)
     t0 = time.time()
-    pid = json.loads(req("/prompt", {"prompt": wf}))["prompt_id"]
+    try:
+        pid = json.loads(req("/prompt", {"prompt": wf}))["prompt_id"]
+    except urllib.error.HTTPError as e:   # ComfyUI explains a rejected workflow in the body
+        print(f"{j['tag']}: REJECTED {e.code} {e.read().decode(errors='replace')[:800]}", flush=True); continue
     while True:
         h = json.loads(req(f"/history/{pid}"))
         if pid in h and h[pid].get("status", {}).get("completed") is not None:
