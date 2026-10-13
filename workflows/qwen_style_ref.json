@@ -1,0 +1,15 @@
+{
+  "1": {"class_type": "UNETLoader", "inputs": {"unet_name": "qwen_image_edit_2511_fp8mixed.safetensors", "weight_dtype": "default"}},
+  "2": {"class_type": "CLIPLoader", "inputs": {"clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors", "type": "qwen_image", "device": "default"}},
+  "3": {"class_type": "VAELoader", "inputs": {"vae_name": "qwen_image_vae.safetensors"}},
+  "4": {"class_type": "LoadImage", "inputs": {"image": "style_ref_1.png"}},
+  "5": {"class_type": "LoadImage", "inputs": {"image": "style_ref_2.png"}},
+  "6": {"class_type": "TextEncodeQwenImageEditPlus", "inputs": {"clip": ["2", 0], "vae": ["3", 0], "image1": ["4", 0], "image2": ["5", 0],
+        "prompt": "Using the art style of image 1 and image 2 (The Boondocks: anime-influenced 2D animation, bold clean outlines, flat cel shading, large expressive brown eyes, muted warm palette), draw a brand-new original character who is not any of the people shown: a lanky Black teenage boy, about 16, with a high-top fade and a thin goatee, wearing an oversized vintage green basketball jersey over a white tee and a thin gold chain, smirking with one eyebrow raised and arms crossed. Front-facing head-and-shoulders portrait looking at the viewer, standing in a quiet suburban cul-de-sac at golden hour, soft blurred background."}},
+  "7": {"class_type": "TextEncodeQwenImageEditPlus", "inputs": {"clip": ["2", 0], "vae": ["3", 0], "prompt": "3d render, photo, realistic, blurry, text, watermark, extra limbs, deformed hands, copy of reference character"}},
+  "8": {"class_type": "ModelSamplingAuraFlow", "inputs": {"model": ["1", 0], "shift": 3.0}},
+  "9": {"class_type": "EmptySD3LatentImage", "inputs": {"width": 768, "height": 1344, "batch_size": 1}},
+  "10": {"class_type": "KSampler", "inputs": {"model": ["8", 0], "positive": ["6", 0], "negative": ["7", 0], "latent_image": ["9", 0], "seed": 1984, "steps": 24, "cfg": 3.0, "sampler_name": "euler", "scheduler": "simple", "denoise": 1.0}},
+  "11": {"class_type": "VAEDecode", "inputs": {"samples": ["10", 0], "vae": ["3", 0]}},
+  "12": {"class_type": "SaveImage", "inputs": {"images": ["11", 0], "filename_prefix": "boondocks_character"}}
+}
