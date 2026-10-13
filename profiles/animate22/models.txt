@@ -1,0 +1,10 @@
+# <path under models/>  <url>   (seed-models.sh fetches any line whose file is missing)
+# --- Qwen-Image-Edit 2511 (core ComfyUI nodes) ~30 GB
+# --- InfiniteTalk on Wan2.1 I2V 14B 480p (WanVideoWrapper) ~31 GB
+# --- Chatterbox: the node downloads its own pack into models/tts/chatterbox on first run (~2.5 GB), which lands on the volume via the symlink.
+# --- Qwen-Image-Edit 2511 Lightning (4/8-step speed-up LoRAs) ~1.7 GB
+# --- Wan 2.2 TI2V 5B (native ComfyUI) + Turbo LoRA: cheaper/faster animation ~18 GB
+diffusion_models/wan2.2_ti2v_5B_fp16.safetensors  https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors
+vae/wan2.2_vae.safetensors  https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan2.2_vae.safetensors
+text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors  https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors
+loras/Wan22-Turbo/Wan22_TI2V_5B_Turbo_lora_rank_64_fp16.safetensors  https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22-Turbo/Wan22_TI2V_5B_Turbo_lora_rank_64_fp16.safetensors
