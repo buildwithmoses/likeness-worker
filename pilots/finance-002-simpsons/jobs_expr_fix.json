@@ -1,0 +1,196 @@
+[
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_neutral_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9100,
+   "12.filename_prefix": "expr_neutral_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a calm neutral expression, mouth closed, both eyes open and looking at the viewer. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_neutral_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9101,
+   "12.filename_prefix": "expr_neutral_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a calm neutral expression, mouth closed, both eyes open and looking at the viewer. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_happy_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9110,
+   "12.filename_prefix": "expr_happy_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a big happy smile, both eyes open and looking at the viewer. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_happy_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9111,
+   "12.filename_prefix": "expr_happy_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a big happy smile, both eyes open and looking at the viewer. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_worried_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9120,
+   "12.filename_prefix": "expr_worried_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a worried expression, eyebrows raised in the middle, small frown, both eyes open, a single sweat drop on his forehead. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_worried_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9121,
+   "12.filename_prefix": "expr_worried_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a worried expression, eyebrows raised in the middle, small frown, both eyes open, a single sweat drop on his forehead. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_panicked_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9130,
+   "12.filename_prefix": "expr_panicked_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a panicked expression, mouth wide open, both eyes wide open with tiny pupils, hands on both cheeks. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_panicked_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9131,
+   "12.filename_prefix": "expr_panicked_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a panicked expression, mouth wide open, both eyes wide open with tiny pupils, hands on both cheeks. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_relieved_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9140,
+   "12.filename_prefix": "expr_relieved_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a relieved smile, both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible, shoulders relaxed. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_relieved_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9141,
+   "12.filename_prefix": "expr_relieved_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, a relieved smile, both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible, shoulders relaxed. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_asleep_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9150,
+   "12.filename_prefix": "expr_asleep_v0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, asleep, head tilted slightly to one side, peaceful small smile, both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "expr_asleep_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 9151,
+   "12.filename_prefix": "expr_asleep_v1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair with cowlick, same light blue crew-neck t-shirt) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: head-and-shoulders portrait, facing the viewer, asleep, head tilted slightly to one side, peaceful small smile, both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible. Pure white background, nothing else in the picture, no text, no words, no letters."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_s7_eyes_v0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7sleep1_simp002_s7sleep1_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
+   "10.seed": 9500,
+   "12.filename_prefix": "fix_s7_eyes_v0",
+   "6.prompt": "Change only the eyes: make the man fully asleep with both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible. Keep everything else exactly the same: same face, hair, pose, bed, pillow, blanket, piggy bank, colors and framing."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_edit_lightning.json",
+  "tag": "fix_s7_eyes_v1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7sleep1_simp002_s7sleep1_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
+   "10.seed": 9501,
+   "12.filename_prefix": "fix_s7_eyes_v1",
+   "6.prompt": "Change only the eyes: make the man fully asleep with both eyes closed, each drawn as one short downward curved line, no white eyeballs and no pupils visible. Keep everything else exactly the same: same face, hair, pose, bed, pillow, blanket, piggy bank, colors and framing."
+  }
+ }
+]
