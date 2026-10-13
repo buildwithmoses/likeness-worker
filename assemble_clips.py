@@ -105,8 +105,10 @@ SFX = {"pop":    ["-f", "lavfi", "-i", "aevalsrc=exprs=0.7*sin(2*PI*t*(1100-7000
        "whoosh": ["-f", "lavfi", "-i", "anoisesrc=d=1.1:c=pink:r=48000,highpass=f=350,lowpass=f=2800,afade=t=in:d=0.45,afade=t=out:st=0.5:d=0.6,volume=0.55"],
        "fire":   ["-f", "lavfi", "-i", "anoisesrc=d=3.5:c=brown:r=48000,lowpass=f=900,tremolo=f=9:d=0.6,afade=t=in:d=0.6,afade=t=out:st=2.4:d=1.1,volume=0.5"]}
 hits = [(name, cuts[i] + off) for i, s in enumerate(plan["shots"]) for name, off in s.get("sfx", [])]
+hits += [("pop", cuts[i] + lb["at"]) for i, s in enumerate(plan["shots"]) for lb in s.get("labels", [])]
 if hits:
-    args, mix = ["-i", f"{work}/vo.wav"], ["[0:a]volume=1.0[a0]"]
+    vov = "1.0" if plan.get("voice", True) else "0"     # "voice": false = preview with SFX only (timing still from the VO)
+    args, mix = ["-i", f"{work}/vo.wav"], [f"[0:a]volume={vov}[a0]"]
     for k, (name, at_s) in enumerate(hits):
         args += SFX[name]; ms = int(at_s * 1000)
         mix.append(f"[{k+1}:a]adelay={ms}|{ms},volume={plan.get('sfx_volume', 0.35)}[s{k}]")
@@ -115,11 +117,38 @@ if hits:
     sh("ffmpeg", "-v", "error", "-y", *args, "-filter_complex", ";".join(mix), "-map", "[mixed]", f"{work}/vo_sfx.wav")
     os.replace(f"{work}/vo_sfx.wav", f"{work}/vo.wav")
 final = f"{P}/{plan['out']}"
+labels = []
+for i, sh_ in enumerate(plan["shots"]):
+    for k, lb in enumerate(sh_.get("labels", [])):
+        from PIL import Image, ImageDraw, ImageFont
+        fnt = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", int(H * 0.055))
+        im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        tx, ty = lb["x"] * W, lb["y"] * H; tw = d.textlength(lb["text"], font=fnt)
+        d.text((tx - tw / 2, ty), lb["text"], font=fnt, fill="black", stroke_width=int(H * 0.006), stroke_fill="white")
+        if "arrow" in lb:   # simple thick arrow from under the label to the target point
+            x2, y2 = lb["arrow"][0] * W, lb["arrow"][1] * H; x1, y1 = tx, ty + H * 0.075
+            d.line([(x1, y1), (x2, y2)], fill="black", width=int(H * 0.008))
+            import math
+            a = math.atan2(y2 - y1, x2 - x1); L = H * 0.03
+            d.polygon([(x2, y2), (x2 - L * math.cos(a - 0.45), y2 - L * math.sin(a - 0.45)),
+                       (x2 - L * math.cos(a + 0.45), y2 - L * math.sin(a + 0.45))], fill="black")
+        path = f"{work}/label{i:02d}_{k}.png"; im.save(path)
+        labels.append((path, cuts[i] + lb["at"], cuts[i + 1]))
+src_v = f"{work}/video.mp4"
+if labels:
+    args = ["-i", src_v]; chain, last = [], "[0:v]"
+    for n, (pth, a, b) in enumerate(labels):
+        args += ["-i", pth]; out = f"[l{n}]"
+        chain.append(f"{last}[{n+1}:v]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'{out}"); last = out
+    sh("ffmpeg", "-v", "error", "-y", *args, "-filter_complex", ";".join(chain), "-map", last,
+       "-c:v", "libx264", "-preset", "fast", "-crf", "17", f"{work}/video_labels.mp4")
+    src_v = f"{work}/video_labels.mp4"
 if not plan.get("captions", True):   # Wallace-style videos have no captions
-    sh("ffmpeg", "-v", "error", "-y", "-i", f"{work}/video.mp4", "-i", f"{work}/vo.wav", "-map", "0:v", "-map", "1:a",
-       "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+    norm = "loudnorm=I=-16:TP=-1.5:LRA=11" if plan.get("voice", True) else "volume=1.6"   # don't normalise an SFX-only track
+    sh("ffmpeg", "-v", "error", "-y", "-i", src_v, "-i", f"{work}/vo.wav", "-map", "0:v", "-map", "1:a",
+       "-af", norm, "-c:v", "libx264", "-preset", "medium", "-crf", "18",
        "-c:a", "aac", "-b:a", "192k", "-shortest", final)
-    print(f"done: {final}  ({total:.1f}s, {len(clips)} clips, {len(hits)} sfx, {W}x{H}, no captions)"); sys.exit(0)
+    print(f"done: {final}  ({total:.1f}s, {len(clips)} clips, {len(labels)} labels, {len(hits)} sfx, {W}x{H}, no captions)"); sys.exit(0)
 # 4. captions like the reference: short phrases (<=7 words, break at punctuation), condensed bold white, black outline
 font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Impact.ttf", 38)
 chunks, cur = [], []

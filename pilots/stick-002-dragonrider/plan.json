@@ -1,0 +1,224 @@
+{
+ "prefix": "drg2",
+ "n_vo": 5,
+ "gap": 0.6,
+ "voice_dir": "/Users/henrymoses/Desktop/likeness-worker/pilots/stick-002-dragonrider/voice",
+ "captions": false,
+ "upscaled": true,
+ "size": [
+  1920,
+  1080
+ ],
+ "sfx_volume": 0.35,
+ "voice": false,
+ "out": "dragonrider_v2_PREVIEW_no_voice.mp4",
+ "shots": [
+  {
+   "still": "drg2_bg_castle_drg2_bg_castle_00001_.png",
+   "start": [
+    1,
+    ""
+   ],
+   "labels": [
+    {
+     "text": "Dragonstone",
+     "at": 0.6,
+     "x": 0.5,
+     "y": 0.1,
+     "arrow": [
+      0.5,
+      0.42
+     ]
+    }
+   ]
+  },
+  {
+   "still": "drg2_s2_cradle_drg2_s2_cradle_00001_.png",
+   "start": [
+    1,
+    "before"
+   ]
+  },
+  {
+   "still": "drg2_s4_egg_drg2_s4_egg_00001_.png",
+   "start": [
+    1,
+    "yours"
+   ],
+   "labels": [
+    {
+     "text": "very expensive rock",
+     "at": 1.4,
+     "x": 0.25,
+     "y": 0.18,
+     "arrow": [
+      0.6,
+      0.42
+     ]
+    }
+   ]
+  },
+  {
+   "still": "drg2_s6_sad_drg2_s6_sad_00001_.png",
+   "start": [
+    2,
+    ""
+   ]
+  },
+  {
+   "bg": "drg2_bg_mont_drg2_bg_mont_00001_.png",
+   "fg": "drg2_c_walk_drg2_c_walk_00001_.png",
+   "move": "walk",
+   "start": [
+    2,
+    "walk"
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.2
+    ]
+   ],
+   "labels": [
+    {
+     "text": "Dragonmont",
+     "at": 0.9,
+     "x": 0.62,
+     "y": 0.12,
+     "arrow": [
+      0.3,
+      0.8
+     ]
+    }
+   ]
+  },
+  {
+   "still": "drg2_s8_bones_drg2_s8_bones_00001_.png",
+   "start": [
+    2,
+    "plenty"
+   ]
+  },
+  {
+   "bg": "drg2_bg_eye_drg2_bg_eye_00001_.png",
+   "fg": "drg2_c_tremble_drg2_c_tremble_00001_.png",
+   "move": "tremble",
+   "start": [
+    3,
+    ""
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.05
+    ]
+   ]
+  },
+  {
+   "still": "drg2_s10_claim_drg2_s10_claim_00001_.png",
+   "start": [
+    3,
+    "raise"
+   ],
+   "labels": [
+    {
+     "text": "High Valyrian",
+     "at": 1.6,
+     "x": 0.27,
+     "y": 0.1
+    }
+   ]
+  },
+  {
+   "bg": "drg2_bg_sky_drg2_bg_sky_00001_.png",
+   "fg": "drg2_c_fly_drg2_c_fly_00001_.png",
+   "move": "fly",
+   "start": [
+    3,
+    "you're"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "still": "drg2_s12_dragon_drg2_s12_dragon_00001_.png",
+   "start": [
+    3,
+    "no"
+   ]
+  },
+  {
+   "bg": "drg2_bg_sky_drg2_bg_sky_00001_.png",
+   "fg": "drg2_c_fly_drg2_c_fly_00001_.png",
+   "move": "fly_left",
+   "start": [
+    4,
+    ""
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "still": "drg2_s14_chair_drg2_s14_chair_00001_.png",
+   "start": [
+    4,
+    "then"
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.05
+    ]
+   ]
+  },
+  {
+   "still": "drg2_s15_clash_drg2_s15_clash_00001_.png",
+   "start": [
+    5,
+    ""
+   ],
+   "sfx": [
+    [
+     "fire",
+     0.0
+    ]
+   ]
+  },
+  {
+   "still": "drg2_bg_rooks_drg2_bg_rooks_00001_.png",
+   "start": [
+    5,
+    "over"
+   ],
+   "sfx": [
+    [
+     "fire",
+     0.0
+    ]
+   ],
+   "labels": [
+    {
+     "text": "Rook's Rest",
+     "at": 0.5,
+     "x": 0.5,
+     "y": 0.06
+    }
+   ]
+  },
+  {
+   "still": "drg2_s17_alone_drg2_s17_alone_00001_.png",
+   "start": [
+    5,
+    "outlive"
+   ]
+  }
+ ]
+}
