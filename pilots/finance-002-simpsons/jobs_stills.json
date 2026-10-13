@@ -1,0 +1,151 @@
+[
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "simp002_char",
+  "set": {
+   "10.seed": 8001,
+   "12.filename_prefix": "simp002_char",
+   "6.prompt": "An original cartoon character in the classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors: a friendly slightly chubby man in his early 30s with neat short brown hair and a small cowlick, wearing a plain light blue t-shirt, dark blue jeans and white sneakers, standing front-facing with a warm smile, arms relaxed, full body, centered. Not Homer, not Bart, a new character. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s1_awake",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8100,
+   "12.filename_prefix": "simp002_s1_awake",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character sitting up in bed at night, eyes wide with worry, holding his phone that glows red, a few red glowing bill icons floating above his head. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s1c_face",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8101,
+   "12.filename_prefix": "simp002_s1c_face",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: close-up of the character's worried face in bed at night, sweat drop on his forehead, red glow from his phone lighting his face. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s2_jar",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8102,
+   "12.filename_prefix": "simp002_s2_jar",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character smiling proudly, holding a large glass jar full of green cash that glows bright green. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s3_tire",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8103,
+   "12.filename_prefix": "simp002_s3_tire",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character standing beside his small car with a flat tire, both hands on his head, mouth open in panic, a red glowing credit card floating beside him. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s4_loan",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8104,
+   "12.filename_prefix": "simp002_s4_loan",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character handing money across a counter to a smug lender in a suit, red glowing dollar bills flying away. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s4c_face",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8105,
+   "12.filename_prefix": "simp002_s4c_face",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: close-up of the character grimacing with regret, red glowing dollar bills drifting past. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s5_calm",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8106,
+   "12.filename_prefix": "simp002_s5_calm",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character calmly handing cash to a mechanic in overalls next to his fixed car, relaxed smile, a small green glowing savings jar under his arm. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s6_shop",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8107,
+   "12.filename_prefix": "simp002_s6_shop",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character pushing a grocery cart down a supermarket aisle with a relaxed, carefree smile. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s7_sleep",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8108,
+   "12.filename_prefix": "simp002_s7_sleep",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character sleeping peacefully in bed with a content smile, a green glowing piggy bank on the nightstand. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s8_save",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8109,
+   "12.filename_prefix": "simp002_s8_save",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character dropping dollar bills into a green glowing savings jar next to a wall calendar, giving a thumbs up. Plain white background, static camera, single scene, wide 16:9 composition, no text, no words, no captions, no labels."
+  }
+ }
+]
