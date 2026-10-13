@@ -120,10 +120,10 @@
   "workflow": "workflows/wan_i2v_480p.json",
   "tag": "simp002_anim_s7_sleep",
   "upload": [
-   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7_sleep_simp002_s7_sleep_00001_.png"
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7sleep1_simp002_s7sleep1_00001_.png"
   ],
   "set": {
-   "1.image": "simp002_s7_sleep_simp002_s7_sleep_00001_.png",
+   "1.image": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
    "41.seed": 909,
    "43.filename_prefix": "anim_s7_sleep",
    "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man sleeps peacefully, chest rising and falling, the green piggy bank glows softly"

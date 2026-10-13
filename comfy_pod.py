@@ -1,14 +1,39 @@
 #!/usr/bin/env python3
 """Run workflows against ComfyUI on a RunPod *pod* (not the serverless endpoint).
 
-    python3 comfy_pod.py POD_ID jobs.json      # jobs.json: [{"workflow": "...", "set": {...}, "tag": "..."}]
+    python3 comfy_pod.py POD_ID jobs.json [--keep]   # jobs.json: [{"workflow": "...", "set": {...}, "tag": "..."}]
+
+By default the pod is TERMINATED when the batch ends (success, failure or Ctrl-C), so a finished
+batch can never sit idle and bill. Pass --keep only when another batch follows immediately.
 
 Talks to https://POD_ID-8188.proxy.runpod.net (ComfyUI's own API), saves outputs to
 outputs/, and prints wall-clock seconds per job so we can price a session.
 """
-import json, os, sys, time, urllib.parse, urllib.request
+import json, os, sys, time, urllib.error, urllib.parse, urllib.request
 
+import atexit, subprocess
 POD, JOBS = sys.argv[1], json.load(open(sys.argv[2]))
+KEEP = "--keep" in sys.argv
+
+
+def terminate_pod():
+    """DELETE the pod through RunPod's REST API (key from the macOS Keychain), then confirm it's gone."""
+    if KEEP:
+        print(f"--keep: pod {POD} left RUNNING (it bills until terminated)", flush=True); return
+    key = subprocess.check_output(["security", "find-generic-password", "-s", "runpod-api", "-w"], text=True).strip()
+    hdr = {"Authorization": f"Bearer {key}", "User-Agent": "likeness-worker/1.0"}
+    try:
+        urllib.request.urlopen(urllib.request.Request(f"https://rest.runpod.io/v1/pods/{POD}", method="DELETE", headers=hdr), timeout=60)
+    except Exception as e:
+        print(f"!! terminate request failed: {e}", flush=True)
+    try:
+        urllib.request.urlopen(urllib.request.Request(f"https://rest.runpod.io/v1/pods/{POD}", headers=hdr), timeout=60)
+        print(f"!! pod {POD} still exists after terminate; delete it by hand", flush=True)
+    except urllib.error.HTTPError as e:
+        print(f"pod {POD} terminated (read-back {e.code})", flush=True)
+
+
+atexit.register(terminate_pod)
 BASE = f"https://{POD}-8188.proxy.runpod.net"
 HERE = os.path.dirname(os.path.abspath(__file__))
 

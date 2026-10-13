@@ -1,0 +1,30 @@
+[
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s7sleep0",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8501,
+   "12.filename_prefix": "simp002_s7sleep0",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character lying down asleep in a simple bed with his head on the pillow, both eyelids completely shut and drawn as two closed curved lines (no pupils visible, eyes NOT open), small 'z' shapes are NOT drawn, peaceful smile, blanket up to his chest, a green glowing piggy bank on the nightstand. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s7sleep1",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8502,
+   "12.filename_prefix": "simp002_s7sleep1",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character lying down asleep in a simple bed with his head on the pillow, both eyelids completely shut and drawn as two closed curved lines (no pupils visible, eyes NOT open), small 'z' shapes are NOT drawn, peaceful smile, blanket up to his chest, a green glowing piggy bank on the nightstand. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ }
+]
