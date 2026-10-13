@@ -1,0 +1,157 @@
+{
+ "prefix": "drg",
+ "n_vo": 5,
+ "gap": 0.35,
+ "voice_dir": "/Users/henrymoses/Desktop/likeness-worker/pilots/stick-001-dragonrider/voice",
+ "captions": false,
+ "upscaled": true,
+ "size": [
+  1920,
+  1080
+ ],
+ "sfx_volume": 0.35,
+ "out": "dragonrider_pilot_001.mp4",
+ "shots": [
+  {
+   "still": "drg_s1_cradle_drg_s1_cradle_00001_.png",
+   "start": [
+    1,
+    ""
+   ]
+  },
+  {
+   "still": "drg_s2_rock_drg_s2_rock_00001_.png",
+   "start": [
+    1,
+    "lucky"
+   ]
+  },
+  {
+   "still": "drg_s3_never_drg_s3_never_00001_.png",
+   "start": [
+    2,
+    ""
+   ]
+  },
+  {
+   "bg": "drg_bg4_mont_drg_bg4_mont_00001_.png",
+   "fg": "drg_c4_walk_drg_c4_walk_00001_.png",
+   "move": "walk",
+   "start": [
+    2,
+    "walk"
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ]
+   ]
+  },
+  {
+   "still": "drg_s5_bones_drg_s5_bones_00001_.png",
+   "start": [
+    2,
+    "plenty"
+   ]
+  },
+  {
+   "bg": "drg_bg6_eye_drg_bg6_eye_00001_.png",
+   "fg": "drg_c6_scared_drg_c6_scared_00001_.png",
+   "move": "tremble",
+   "start": [
+    3,
+    ""
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.05
+    ]
+   ]
+  },
+  {
+   "still": "drg_s7_claim_drg_s7_claim_00001_.png",
+   "start": [
+    3,
+    "raise"
+   ]
+  },
+  {
+   "bg": "drg_bg8_sky_drg_bg8_sky_00001_.png",
+   "fg": "drg_c8_fly_drg_c8_fly_00001_.png",
+   "move": "fly",
+   "start": [
+    3,
+    "congratulations"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "bg": "drg_bg8_sky_drg_bg8_sky_00001_.png",
+   "fg": "drg_c8_fly_drg_c8_fly_00001_.png",
+   "move": "fly_left",
+   "start": [
+    4,
+    ""
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "still": "drg_s10_chair_drg_s10_chair_00001_.png",
+   "start": [
+    4,
+    "then"
+   ],
+   "sfx": [
+    [
+     "pop",
+     0.05
+    ]
+   ]
+  },
+  {
+   "still": "drg_s11_clash_drg_s11_clash_00001_.png",
+   "start": [
+    5,
+    ""
+   ],
+   "sfx": [
+    [
+     "fire",
+     0.0
+    ]
+   ]
+  },
+  {
+   "still": "drg_bg12_rooks_drg_bg12_rooks_00001_.png",
+   "start": [
+    5,
+    "rest"
+   ],
+   "sfx": [
+    [
+     "fire",
+     0.0
+    ]
+   ]
+  },
+  {
+   "still": "drg_s13_alone_drg_s13_alone_00001_.png",
+   "start": [
+    5,
+    "outlive"
+   ]
+  }
+ ]
+}

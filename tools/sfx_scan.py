@@ -15,7 +15,7 @@ TH = float(sys.argv[3]) if len(sys.argv) > 3 else 0.25
 import os
 y, sr = librosa.load(video, sr=32000, mono=True)
 FPS = 100                                   # Cnn14_DecisionLevelMax outputs 100 frames per second
-cache = out.rsplit(".", 1)[0] + ".probs.npy"  # frame scores are saved so thresholds can be retuned for free
+cache = os.path.splitext(video)[0] + ".sfx_probs.npy"  # saved next to the video: retuning thresholds is free
 if os.path.exists(cache):
     probs = np.load(cache)
 else:
