@@ -47,10 +47,15 @@ cuts = [at(s["start"]) for s in plan["shots"]] + [total]
 # 3. clips: scale to 1280x720 (no zoom), stretch <=1.35x then hold last frame to fill the slot
 clips = []
 for i, s in enumerate(plan["shots"]):
+    slot = cuts[i + 1] - cuts[i]; c = f"{work}/clip{i:02d}.mp4"
+    if "still" in s:  # still picture held for the whole slot: no zoom, no motion
+        sh("ffmpeg", "-v", "error", "-y", "-loop", "1", "-i", f"{OUT}/{s['still']}", "-vf",
+           "scale=1280:720:force_original_aspect_ratio=increase:flags=lanczos,crop=1280:720,fps=30,format=yuv420p",
+           "-t", f"{slot:.3f}", "-c:v", "libx264", "-preset", "fast", "-crf", "17", c)
+        clips.append(c); continue
     src = sorted(f for f in os.listdir(OUT) if f.startswith(f"{pre}_anim_{s['clip']}_") and f.endswith(".mp4"))[-1]
-    slot = cuts[i + 1] - cuts[i]; cd = dur_of(f"{OUT}/{src}")
+    cd = dur_of(f"{OUT}/{src}")
     speed = min(max(slot / cd, 1.0), 1.35)
-    c = f"{work}/clip{i:02d}.mp4"
     sh("ffmpeg", "-v", "error", "-y", "-i", f"{OUT}/{src}", "-vf",
        f"setpts={speed:.4f}*PTS,scale=1280:720:flags=lanczos,fps=30,tpad=stop_mode=clone:stop_duration=30,format=yuv420p",
        "-t", f"{slot:.3f}", "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "17", c)

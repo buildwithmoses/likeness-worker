@@ -1,0 +1,85 @@
+{
+ "prefix": "simp002",
+ "n_vo": 7,
+ "gap": 0.35,
+ "out": "finance_pilot_003_stills.mp4",
+ "shots": [
+  {
+   "still": "simp002_s1_awake_simp002_s1_awake_00001_.png",
+   "start": [
+    1,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s1c_face_simp002_s1c_face_00001_.png",
+   "start": [
+    1,
+    "lying"
+   ]
+  },
+  {
+   "still": "simp002_s2_jar_simp002_s2_jar_00001_.png",
+   "start": [
+    2,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s3_tire_simp002_s3_tire_00001_.png",
+   "start": [
+    3,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s4_loan_simp002_s4_loan_00001_.png",
+   "start": [
+    3,
+    "doctor's"
+   ]
+  },
+  {
+   "still": "simp002_s5_calm_simp002_s5_calm_00001_.png",
+   "start": [
+    4,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s6_shop_simp002_s6_shop_00001_.png",
+   "start": [
+    5,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s7sleep1_simp002_s7sleep1_00001_.png",
+   "start": [
+    5,
+    "sleep"
+   ]
+  },
+  {
+   "still": "simp002_s8_save_simp002_s8_save_00001_.png",
+   "start": [
+    6,
+    ""
+   ]
+  },
+  {
+   "still": "simp002_s9_skip_simp002_s9_skip_00001_.png",
+   "start": [
+    6,
+    "skip"
+   ]
+  },
+  {
+   "still": "simp002_s10_wave_simp002_s10_wave_00001_.png",
+   "start": [
+    7,
+    ""
+   ]
+  }
+ ]
+}
