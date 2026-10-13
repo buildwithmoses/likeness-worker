@@ -1,0 +1,130 @@
+{
+ "1": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "qwen_image_edit_2511_fp8mixed.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "2": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+   "type": "qwen_image",
+   "device": "default"
+  }
+ },
+ "3": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  }
+ },
+ "6": {
+  "class_type": "TextEncodeQwenImageEditPlus",
+  "inputs": {
+   "clip": [
+    "2",
+    0
+   ],
+   "vae": [
+    "3",
+    0
+   ],
+   "prompt": "Peter Griffin from Family Guy, front-facing head and shoulders portrait, looking straight at the viewer, mouth closed, in his living room, flat 2D cartoon style, clean lines"
+  }
+ },
+ "7": {
+  "class_type": "TextEncodeQwenImageEditPlus",
+  "inputs": {
+   "clip": [
+    "2",
+    0
+   ],
+   "vae": [
+    "3",
+    0
+   ],
+   "prompt": "blurry, 3d render, photo, text, watermark"
+  }
+ },
+ "8": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "13",
+    0
+   ],
+   "shift": 3.0
+  }
+ },
+ "9": {
+  "class_type": "EmptySD3LatentImage",
+  "inputs": {
+   "width": 1280,
+   "height": 720,
+   "batch_size": 1
+  }
+ },
+ "10": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "8",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "negative": [
+    "7",
+    0
+   ],
+   "latent_image": [
+    "9",
+    0
+   ],
+   "seed": 7,
+   "steps": 8,
+   "cfg": 1.0,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 1.0
+  }
+ },
+ "11": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "10",
+    0
+   ],
+   "vae": [
+    "3",
+    0
+   ]
+  }
+ },
+ "12": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "images": [
+    "11",
+    0
+   ],
+   "filename_prefix": "lightning"
+  }
+ },
+ "13": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "model": [
+    "1",
+    0
+   ],
+   "lora_name": "Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors",
+   "strength_model": 1.0
+  }
+ }
+}
