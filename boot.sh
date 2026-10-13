@@ -44,5 +44,26 @@ else
   log "no network volume at $VOL"
 fi
 
+log "patching handler to also return video and audio outputs"
+"$PY" - <<'PYEOF'
+import re
+p = "/handler.py"
+s = open(p).read()
+anchor = "for node_id, node_output in outputs.items():"
+add = ('\n{i}    for _k in ("gifs", "audio", "videos"):'
+       '\n{i}        if _k in node_output:'
+       '\n{i}            node_output.setdefault("images", []).extend(node_output.pop(_k))')
+if "for _k in (\"gifs\"" in s:
+    print("likeness-boot: handler already patched")
+else:
+    m = re.search(r"^([ \t]*)" + re.escape(anchor), s, re.M)
+    if m:
+        s = s[:m.end()] + add.format(i=m.group(1)) + s[m.end():]
+        open(p, "w").write(s)
+        print("likeness-boot: handler patched")
+    else:
+        print("likeness-boot: handler anchor NOT found; video/audio outputs will be dropped")
+PYEOF
+
 log "starting worker"
 exec /start.sh
