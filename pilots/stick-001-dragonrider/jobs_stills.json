@@ -1,0 +1,201 @@
+[
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg_char",
+  "set": {
+   "10.seed": 6001,
+   "12.filename_prefix": "drg_char",
+   "6.prompt": "An original character in a simple stick figure cartoon style: round white head with two tiny black dot eyes and a small line mouth, thin black line arms and legs, small rounded torso wearing a dark red and black tunic, silver-white hair, thick clean black outlines, flat colors: a twelve-year-old boy standing front-facing, neutral expression, full body, centered, plain white background. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s1_cradle",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6101,
+   "12.filename_prefix": "drg_s1_cradle",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw a dark stone castle room on a volcanic island; a stick-figure mother with long silver-white hair gently places a large scaly dragon egg into a wooden cradle that holds a tiny stick-figure baby with silver-white hair. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s2_rock",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6102,
+   "12.filename_prefix": "drg_s2_rock",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the tiny baby with silver-white hair sitting in the cradle hugging a large grey scaly dragon egg that looks like a plain rock, simple stone room. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s3_never",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6103,
+   "12.filename_prefix": "drg_s3_never",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the boy sitting at a stone table staring sadly at a cold grey dragon egg that never hatched, slumped shoulders. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg_bg4_mont",
+  "set": {
+   "10.seed": 6104,
+   "12.filename_prefix": "drg_bg4_mont",
+   "6.prompt": "Background only, no people, no characters: a huge dark volcanic mountain with a glowing cave entrance at its base, smoke rising, grey sky, flat cartoon style with thick clean black outlines and flat colors, simple shapes. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_c4_walk",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6105,
+   "12.filename_prefix": "drg_c4_walk",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the boy walking to the right, side view, determined face, full body. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else in the background. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s5_bones",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6106,
+   "12.filename_prefix": "drg_s5_bones",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw a dark volcanic cave floor scattered with scorched bones and a few charred cartoon stick-figure helmets, embers glowing, no living people. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg_bg6_eye",
+  "set": {
+   "10.seed": 6107,
+   "12.filename_prefix": "drg_bg6_eye",
+   "6.prompt": "Background only, no people, no characters: pitch-black cave interior with one enormous glowing orange reptile eye with a slit pupil in the darkness on the right side, flat cartoon style with thick clean black outlines and flat colors, simple shapes. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_c6_scared",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6108,
+   "12.filename_prefix": "drg_c6_scared",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the boy standing small and frightened, knees together, sweat drop, hands clenched, full body. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else in the background. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s7_claim",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6109,
+   "12.filename_prefix": "drg_s7_claim",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the boy raising one open hand toward an enormous wild bronze dragon that lowers its huge head down to him in a dark volcanic cave, the dragon drawn more detailed than the boy. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg_bg8_sky",
+  "set": {
+   "10.seed": 6110,
+   "12.filename_prefix": "drg_bg8_sky",
+   "6.prompt": "Background only, no people, no characters: wide bright blue sky with a few soft white clouds, a volcanic island far below at the bottom, flat cartoon style with thick clean black outlines and flat colors, simple shapes. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_c8_fly",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6111,
+   "12.filename_prefix": "drg_c8_fly",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the boy riding bareback on the neck of a large bronze dragon flying to the right with wings spread, no saddle, the boy clinging on with a nervous grin, the dragon drawn more detailed than the boy. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else in the background. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s10_chair",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6112,
+   "12.filename_prefix": "drg_s10_chair",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw two angry stick-figure adults with silver-white hair tugging on opposite sides of a large jagged dark throne made of fused swords, in a grand hall. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s11_clash",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6113,
+   "12.filename_prefix": "drg_s11_clash",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw two huge dragons, one bronze and one red, clawing and breathing fire at each other in a dark red sky full of smoke, tiny stick-figure riders on their backs, the dragons drawn more detailed than the riders. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg_bg12_rooks",
+  "set": {
+   "10.seed": 6114,
+   "12.filename_prefix": "drg_bg12_rooks",
+   "6.prompt": "Background only, no people, no characters: a small stone castle on a hill engulfed in huge orange flames under a black smoky sky, burnt fields, flat cartoon style with thick clean black outlines and flat colors, simple shapes. No text, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg_s13_alone",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg_char_drg_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg_char_drg_char_00001_.png",
+   "5.image": "drg_char_drg_char_00001_.png",
+   "10.seed": 6115,
+   "12.filename_prefix": "drg_s13_alone",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (same round white head, dot eyes, silver-white hair, dark red and black tunic), draw the large bronze dragon flying alone toward a sunset over the sea, seen from behind, with nobody riding on its back. Wide 16:9 composition. No text, no letters, no numbers, no captions."
+  }
+ }
+]
