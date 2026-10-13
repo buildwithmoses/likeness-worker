@@ -1,0 +1,198 @@
+[
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_char",
+  "set": {
+   "10.seed": 7001,
+   "12.filename_prefix": "drg2_char",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. one simple stick figure boy with round white heads, two tiny black dot eyes, small line mouths and thin black line arms and legs: a twelve-year-old boy with messy silver-white hair and a plain dark red tunic, standing front-facing, full body, small in the center of a plain white background. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_bg_castle",
+  "set": {
+   "10.seed": 7101,
+   "12.filename_prefix": "drg2_bg_castle",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a wide view of a dark stone castle on a small volcanic island in a grey sea, small in the frame, pale sky, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s2_cradle",
+  "set": {
+   "10.seed": 7102,
+   "12.filename_prefix": "drg2_s2_cradle",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. inside a plain stone room, simple stick figure people with round white heads, two tiny black dot eyes, small line mouths and thin black line arms and legs: a mother with long silver-white hair lowers a big round dragon egg into a small wooden cradle that holds a tiny baby with silver-white hair; wide shot, the people small in the frame. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s4_egg",
+  "set": {
+   "10.seed": 7103,
+   "12.filename_prefix": "drg2_s4_egg",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a single large round grey dragon egg sitting alone in the middle of a plain white background. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s5_toddler",
+  "set": {
+   "10.seed": 7104,
+   "12.filename_prefix": "drg2_s5_toddler",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. simple stick figure people with round white heads, two tiny black dot eyes, small line mouths and thin black line arms and legs: a tiny toddler with silver-white hair hugging a big grey dragon egg like a teddy bear on a plain floor, wide shot, small in frame. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_bg_mont",
+  "set": {
+   "10.seed": 7105,
+   "12.filename_prefix": "drg2_bg_mont",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a wide view of a huge dark volcano with a small glowing cave entrance at its base, smoke, flat pale sky, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s8_bones",
+  "set": {
+   "10.seed": 7106,
+   "12.filename_prefix": "drg2_s8_bones",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a wide dark cave floor with a few scattered bones and small burnt helmets, a few embers, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_bg_eye",
+  "set": {
+   "10.seed": 7107,
+   "12.filename_prefix": "drg2_bg_eye",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a pitch-black cave with one big glowing orange reptile eye with a slit pupil on the right side, simple flat shapes, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_bg_sky",
+  "set": {
+   "10.seed": 7108,
+   "12.filename_prefix": "drg2_bg_sky",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a wide pale blue sky with a few simple flat white clouds and a small volcanic island far below, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s12_dragon",
+  "set": {
+   "10.seed": 7109,
+   "12.filename_prefix": "drg2_s12_dragon",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a big bronze dragon sitting on a plain white background looking away with a bored, unimpressed face, the dragon drawn as a simple flat cartoon shape with plain flat color, not realistic, no scale texture. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s14_chair",
+  "set": {
+   "10.seed": 7110,
+   "12.filename_prefix": "drg2_s14_chair",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. inside a plain grand hall, simple stick figure people with round white heads, two tiny black dot eyes, small line mouths and thin black line arms and legs: two adults with silver-white hair angrily pulling on opposite sides of a big jagged black throne made of swords; wide shot, people small in the frame. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s15_clash",
+  "set": {
+   "10.seed": 7111,
+   "12.filename_prefix": "drg2_s15_clash",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. two big dragons, one bronze and one red, breathing fire at each other in a dark red sky, tiny stick figure riders on their backs, the dragon drawn as a simple flat cartoon shape with plain flat color, not realistic, no scale texture, wide shot. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_bg_rooks",
+  "set": {
+   "10.seed": 7112,
+   "12.filename_prefix": "drg2_bg_rooks",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a wide view of a small stone castle on a hill on fire, flat orange flames and grey smoke, no people. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_t2i_lightning.json",
+  "tag": "drg2_s17_alone",
+  "set": {
+   "10.seed": 7113,
+   "12.filename_prefix": "drg2_s17_alone",
+   "6.prompt": "minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space. a big bronze dragon flying alone toward a low orange sunset over a flat sea, seen from behind, nobody riding it, the dragon drawn as a simple flat cartoon shape with plain flat color, not realistic, no scale texture, small in the frame. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg2_s6_sad",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg2_char_drg2_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg2_char_drg2_char_00001_.png",
+   "5.image": "drg2_char_drg2_char_00001_.png",
+   "10.seed": 7201,
+   "12.filename_prefix": "drg2_s6_sad",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (round white head, dot eyes, messy silver-white hair, plain dark red tunic), minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space: the boy sitting small at a plain stone table, looking sadly at a cold grey dragon egg, wide shot with lots of empty space. Wide 16:9. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg2_s10_claim",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg2_char_drg2_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg2_char_drg2_char_00001_.png",
+   "5.image": "drg2_char_drg2_char_00001_.png",
+   "10.seed": 7202,
+   "12.filename_prefix": "drg2_s10_claim",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (round white head, dot eyes, messy silver-white hair, plain dark red tunic), minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space: the boy, small, raising one open hand toward a huge bronze dragon that lowers its head to him in a dark cave, the dragon drawn as a simple flat cartoon shape with plain flat color, not realistic, no scale texture, wide shot. Wide 16:9. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg2_c_walk",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg2_char_drg2_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg2_char_drg2_char_00001_.png",
+   "5.image": "drg2_char_drg2_char_00001_.png",
+   "10.seed": 7203,
+   "12.filename_prefix": "drg2_c_walk",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (round white head, dot eyes, messy silver-white hair, plain dark red tunic), minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space: the boy walking to the right, side view, determined face, full body. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else. Wide 16:9. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg2_c_tremble",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg2_char_drg2_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg2_char_drg2_char_00001_.png",
+   "5.image": "drg2_char_drg2_char_00001_.png",
+   "10.seed": 7204,
+   "12.filename_prefix": "drg2_c_tremble",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (round white head, dot eyes, messy silver-white hair, plain dark red tunic), minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space: the boy standing frightened, knees together, sweat drop, hands clenched, full body. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else. Wide 16:9. No text, no letters, no numbers."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "drg2_c_fly",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/drg2_char_drg2_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "drg2_char_drg2_char_00001_.png",
+   "5.image": "drg2_char_drg2_char_00001_.png",
+   "10.seed": 7205,
+   "12.filename_prefix": "drg2_c_fly",
+   "6.prompt": "Using the exact style and the exact boy from image 1 (round white head, dot eyes, messy silver-white hair, plain dark red tunic), minimal flat 2D cartoon in a simple doodle style: thick clean black outlines, flat muted colors (browns, beige, slate grey, pale blue, a little dark red), no gradients, no textures, no shading, simple geometric shapes, lots of empty space: the boy riding bareback on the neck of a bronze dragon flying to the right with wings spread, clinging on with a nervous grin, the dragon drawn as a simple flat cartoon shape with plain flat color, not realistic, no scale texture. Solid flat pure bright green background (#00FF00) filling the whole picture, nothing else. Wide 16:9. No text, no letters, no numbers."
+  }
+ }
+]
