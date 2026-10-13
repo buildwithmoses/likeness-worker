@@ -15,7 +15,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 def req(path, body=None):
     r = urllib.request.Request(BASE + path, data=json.dumps(body).encode() if body else None,
-                               headers={"Content-Type": "application/json"})
+                               headers={"Content-Type": "application/json",
+                                        # RunPod's proxy 403s the default Python-urllib agent
+                                        "User-Agent": "likeness-worker/1.0"})
     with urllib.request.urlopen(r, timeout=60) as f:
         return f.read()
 
@@ -25,7 +27,8 @@ def wait_ready(limit=1800):
     while time.time() - t0 < limit:
         try:
             req("/system_stats"); print(f"ComfyUI up after {int(time.time()-t0)}s", flush=True); return
-        except Exception:
+        except Exception as e:
+            print(f"  waiting for ComfyUI: {e}", flush=True)
             time.sleep(10)
     sys.exit("ComfyUI never came up")
 
