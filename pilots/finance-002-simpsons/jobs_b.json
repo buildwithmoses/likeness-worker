@@ -1,0 +1,171 @@
+[
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s1_awake",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s1_awake_simp002_s1_awake_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s1_awake_simp002_s1_awake_00001_.png",
+   "41.seed": 900,
+   "43.filename_prefix": "anim_s1_awake",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man in bed scrolls his glowing phone nervously, eyes darting, red icons flicker above him"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s1c_face",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s1c_face_simp002_s1c_face_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s1c_face_simp002_s1c_face_00001_.png",
+   "41.seed": 901,
+   "43.filename_prefix": "anim_s1c_face",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man blinks and swallows nervously, sweat drop trembles, red light flickers on his face"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s2_jar",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s2_jar_simp002_s2_jar_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s2_jar_simp002_s2_jar_00001_.png",
+   "41.seed": 902,
+   "43.filename_prefix": "anim_s2_jar",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man smiles and lifts the glowing jar of cash slightly, the green glow pulses"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s3_tire",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s3_tire_simp002_s3_tire_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s3_tire_simp002_s3_tire_00001_.png",
+   "41.seed": 903,
+   "43.filename_prefix": "anim_s3_tire",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man grabs his head and shakes it in panic, mouth open, the red credit card spins slowly"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s4_loan",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s4_loan_simp002_s4_loan_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s4_loan_simp002_s4_loan_00001_.png",
+   "41.seed": 904,
+   "43.filename_prefix": "anim_s4_loan",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man reluctantly hands over cash, the lender grins, red dollar bills flutter away"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s4c_face",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s4c_face_simp002_s4c_face_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s4c_face_simp002_s4c_face_00001_.png",
+   "41.seed": 905,
+   "43.filename_prefix": "anim_s4c_face",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man grimaces and shakes his head with regret, red bills drift past"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s5_calm",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s5_calm_simp002_s5_calm_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s5_calm_simp002_s5_calm_00001_.png",
+   "41.seed": 906,
+   "43.filename_prefix": "anim_s5_calm",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man calmly hands cash to the mechanic, both nod, the green jar glows softly"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s5b_relief",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s5b_relief_simp002_s5b_relief_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s5b_relief_simp002_s5b_relief_00001_.png",
+   "41.seed": 907,
+   "43.filename_prefix": "anim_s5b_relief",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man exhales and smiles with relief, shoulders drop, the green jar glows"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s6_shop",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s6_shop_simp002_s6_shop_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s6_shop_simp002_s6_shop_00001_.png",
+   "41.seed": 908,
+   "43.filename_prefix": "anim_s6_shop",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man pushes the cart forward casually, smiling, relaxed"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s7_sleep",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s7_sleep_simp002_s7_sleep_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s7_sleep_simp002_s7_sleep_00001_.png",
+   "41.seed": 909,
+   "43.filename_prefix": "anim_s7_sleep",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man sleeps peacefully, chest rising and falling, the green piggy bank glows softly"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s8_save",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s8_save_simp002_s8_save_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s8_save_simp002_s8_save_00001_.png",
+   "41.seed": 910,
+   "43.filename_prefix": "anim_s8_save",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man drops bills into the glowing jar and gives a thumbs up, the jar glows brighter"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s9_skip",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s9_skip_simp002_s9_skip_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s9_skip_simp002_s9_skip_00001_.png",
+   "41.seed": 911,
+   "43.filename_prefix": "anim_s9_skip",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man pushes the takeout bag away and shows the phone with the red X, shaking his head with a grin"
+  }
+ },
+ {
+  "workflow": "workflows/wan_i2v_480p.json",
+  "tag": "simp002_anim_s10_wave",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_s10_wave_simp002_s10_wave_00001_.png"
+  ],
+  "set": {
+   "1.image": "simp002_s10_wave_simp002_s10_wave_00001_.png",
+   "41.seed": 912,
+   "43.filename_prefix": "anim_s10_wave",
+   "14.positive_prompt": "flat 2D Simpsons-style cartoon animation, static camera, no camera movement. the man waves at the viewer happily and points to the side"
+  }
+ }
+]

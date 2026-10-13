@@ -1,0 +1,99 @@
+{
+ "prefix": "simp002",
+ "n_vo": 7,
+ "gap": 0.35,
+ "out": "finance_pilot_002_simpsons.mp4",
+ "shots": [
+  {
+   "clip": "s1_awake",
+   "start": [
+    1,
+    ""
+   ]
+  },
+  {
+   "clip": "s1c_face",
+   "start": [
+    1,
+    "lying"
+   ]
+  },
+  {
+   "clip": "s2_jar",
+   "start": [
+    2,
+    ""
+   ]
+  },
+  {
+   "clip": "s3_tire",
+   "start": [
+    3,
+    ""
+   ]
+  },
+  {
+   "clip": "s4_loan",
+   "start": [
+    3,
+    "doctor's"
+   ]
+  },
+  {
+   "clip": "s4c_face",
+   "start": [
+    3,
+    "quietly"
+   ]
+  },
+  {
+   "clip": "s5_calm",
+   "start": [
+    4,
+    ""
+   ]
+  },
+  {
+   "clip": "s5b_relief",
+   "start": [
+    4,
+    "no"
+   ]
+  },
+  {
+   "clip": "s6_shop",
+   "start": [
+    5,
+    ""
+   ]
+  },
+  {
+   "clip": "s7_sleep",
+   "start": [
+    5,
+    "sleep"
+   ]
+  },
+  {
+   "clip": "s8_save",
+   "start": [
+    6,
+    ""
+   ]
+  },
+  {
+   "clip": "s9_skip",
+   "start": [
+    6,
+    "skip"
+   ]
+  },
+  {
+   "clip": "s10_wave",
+   "start": [
+    7,
+    ""
+   ]
+  }
+ ]
+}

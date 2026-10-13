@@ -34,14 +34,17 @@ if [ -d "$VOL" ]; then
   rm -rf /comfyui/models && ln -s "$VOL/models" /comfyui/models
   log "checking models"
   wget -q -O /tmp/models.txt "$REPO_RAW/models.txt" || : > /tmp/models.txt
+  # up to 4 downloads at once: boot time is dominated by these (~60 GB)
   while read -r rel url; do
     { [ -z "${rel:-}" ] || [ "${rel:0:1}" = "#" ]; } && continue
     dest="$VOL/models/$rel"
     [ -s "$dest" ] && continue
     mkdir -p "$(dirname "$dest")"
     log "fetching $rel"
-    if wget -q -c -O "$dest.part" "$url"; then mv "$dest.part" "$dest"; else log "FAILED $rel"; fi
+    ( if wget -q -c -O "$dest.part" "$url"; then mv "$dest.part" "$dest"; else log "FAILED $rel"; fi ) &
+    while [ "$(jobs -rp | wc -l)" -ge 4 ]; do sleep 1; done
   done < /tmp/models.txt
+  wait
   log "models ready"
 else
   log "no network volume at $VOL"

@@ -1,0 +1,184 @@
+[
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s1_awake",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8300,
+   "12.filename_prefix": "simp002_s1_awake",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character sitting up in a simple bed, eyes wide with worry, staring at his phone which glows red, three small red glowing bill icons floating above his head. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s1c_face",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8301,
+   "12.filename_prefix": "simp002_s1c_face",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: close-up of the character's worried face and shoulders, a sweat drop on his forehead, red glow from the phone in his hand lighting his face. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s5_calm",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8302,
+   "12.filename_prefix": "simp002_s5_calm",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character calmly handing cash to a different person, a bald older mechanic with a grey mustache in orange overalls, next to a small fixed car, a small green glowing savings jar under the character's arm. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s5b_relief",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8303,
+   "12.filename_prefix": "simp002_s5b_relief",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: close-up of the character smiling with relief, shoulders relaxed, a small green glowing savings jar in his hand. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s7_sleep",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8304,
+   "12.filename_prefix": "simp002_s7_sleep",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character fast asleep in a simple bed, eyes fully closed, peaceful smile, a green glowing piggy bank on the nightstand. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s8_save",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8305,
+   "12.filename_prefix": "simp002_s8_save",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character dropping dollar bills into a large green glowing savings jar, giving a thumbs up, a blank wall calendar with empty boxes beside him. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s9_skip",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8306,
+   "12.filename_prefix": "simp002_s9_skip",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character pushing away a takeout food bag with one hand and holding up a phone with a big red X on the screen with the other, confident smile, red glow on the bag. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/qwen_style_ref_lightning.json",
+  "tag": "simp002_s10_wave",
+  "upload": [
+   "/Users/henrymoses/Desktop/likeness-worker/outputs/simp002_char_simp002_char_00001_.png"
+  ],
+  "set": {
+   "4.image": "simp002_char_simp002_char_00001_.png",
+   "5.image": "simp002_char_simp002_char_00001_.png",
+   "10.seed": 8307,
+   "12.filename_prefix": "simp002_s10_wave",
+   "6.prompt": "Draw the exact character from image 1 (same face, same brown hair, same light blue t-shirt and jeans) in the same classic Simpsons TV animation style: bright yellow skin, large round white eyes with small black pupils, slight overbite, four-finger hands, thin clean black outlines, flat colors, in a new scene: the character smiling and waving at the viewer with one hand, pointing to the side with the other, friendly and upbeat. Pure white background with only minimal line-art furniture or props, static camera, single scene, wide 16:9 composition, only one person unless another person is described, no text, no words, no letters, no numbers, no captions."
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo1",
+  "set": {
+   "2.text": "Picture this. It's payday, and by Thursday your account is already in the red. You're lying awake at three in the morning, doing math on your phone. Sound familiar?",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo1"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo2",
+  "set": {
+   "2.text": "Here's what nobody tells you. The first thousand dollars you save changes your life more than almost any raise.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo2"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo3",
+  "set": {
+   "2.text": "Without it, every surprise is an emergency. A flat tire goes on a credit card. A doctor's bill turns into a payday loan, and that loan quietly costs you another hundred, two hundred dollars in fees.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo3"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo4",
+  "set": {
+   "2.text": "Now picture the same flat tire with a thousand dollars set aside. It's just an annoying Tuesday. You pay the mechanic, and you move on. No interest. No panic. No begging anyone for help.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo4"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo5",
+  "set": {
+   "2.text": "And something changes in your head, too. You stop checking your balance before every purchase. You sleep better. You start making choices instead of reacting.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo5"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo6",
+  "set": {
+   "2.text": "So start small. Twenty-five dollars a week gets you there in under ten months. Skip one takeout order, cancel one subscription you forgot about, and you're halfway there.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo6"
+  }
+ },
+ {
+  "workflow": "workflows/chatterbox_builtin.json",
+  "tag": "simp002_vo7",
+  "set": {
+   "2.text": "Subscribe for part two, where we break down what changes at ten thousand.",
+   "2.seed": 42,
+   "2.exaggeration": 0.55,
+   "3.filename_prefix": "simp002_vo7"
+  }
+ }
+]
