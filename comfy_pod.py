@@ -33,12 +33,26 @@ def wait_ready(limit=1800):
     sys.exit("ComfyUI never came up")
 
 
+def upload(path):
+    """POST a local file to ComfyUI's input folder (multipart), keeping its basename."""
+    boundary = "----likeness" + str(int(time.time() * 1000))
+    name = os.path.basename(path)
+    body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"image\"; filename=\"{name}\"\r\n"
+            f"Content-Type: application/octet-stream\r\n\r\n").encode() + open(path, "rb").read() + \
+           f"\r\n--{boundary}\r\nContent-Disposition: form-data; name=\"overwrite\"\r\n\r\ntrue\r\n--{boundary}--\r\n".encode()
+    r = urllib.request.Request(BASE + "/upload/image", data=body, headers={
+        "Content-Type": f"multipart/form-data; boundary={boundary}", "User-Agent": "likeness-worker/1.0"})
+    urllib.request.urlopen(r, timeout=120).read()
+
+
 wait_ready()
 total = 0.0
 for j in JOBS:
     wf = json.load(open(os.path.join(HERE, j["workflow"])))
     for target, val in j.get("set", {}).items():
         node, inp = target.split(".", 1); wf[node]["inputs"][inp] = val
+    for f in j.get("upload", []):
+        upload(f)
     t0 = time.time()
     pid = json.loads(req("/prompt", {"prompt": wf}))["prompt_id"]
     while True:

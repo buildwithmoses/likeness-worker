@@ -1,0 +1,10 @@
+# <path under models/>  <url>   (seed-models.sh fetches any line whose file is missing)
+# --- Qwen-Image-Edit 2511 (core ComfyUI nodes) ~30 GB
+diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors  https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors
+text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors  https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
+vae/qwen_image_vae.safetensors  https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
+# --- InfiniteTalk on Wan2.1 I2V 14B 480p (WanVideoWrapper) ~31 GB
+# --- Chatterbox: the node downloads its own pack into models/tts/chatterbox on first run (~2.5 GB), which lands on the volume via the symlink.
+# --- Qwen-Image-Edit 2511 Lightning (4/8-step speed-up LoRAs) ~1.7 GB
+loras/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors  https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors
+loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors  https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors

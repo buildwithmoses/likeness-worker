@@ -9,6 +9,9 @@ REPO_RAW="${LIKENESS_REPO_RAW:-https://raw.githubusercontent.com/buildwithmoses/
 PY=/opt/venv/bin/python
 log() { echo "likeness-boot: $(date +%T) $*"; }
 
+# No network volume (throwaway pod): use a plain directory on the container disk instead.
+[ -d "$VOL" ] || { mkdir -p "$VOL"; log "no network volume; models go on the container disk"; }
+
 # Leftovers from the first design (ComfyUI + venv copied onto the volume): delete in the background.
 for d in "$VOL/comfyui" "$VOL/venv"; do [ -e "$d" ] && { mv "$d" "$d.trash-$$" 2>/dev/null; (rm -rf "$d.trash-$$" &); }; done
 rm -f "$VOL/.likeness-install-v1"
