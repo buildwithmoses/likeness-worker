@@ -2,7 +2,7 @@
  "2": {
   "class_type": "ChatterboxTTS",
   "inputs": {
-   "model_pack_name": "chatterbox",
+   "model_pack_name": "resembleai_default_voice",
    "text": "Alright, so this is a test. If you can hear me and my lips are moving, the whole thing works. Pretty sweet, huh?",
    "max_new_tokens": 1000,
    "flow_cfg_scale": 0.7,
