@@ -1,7 +1,7 @@
 {
  "prefix": "drg2",
  "n_vo": 5,
- "gap": 0.6,
+ "gap": 0.25,
  "voice_dir": "/Users/henrymoses/Desktop/likeness-worker/pilots/stick-002-dragonrider/voice",
  "captions": false,
  "upscaled": true,
@@ -11,7 +11,7 @@
  ],
  "sfx_volume": 0.35,
  "voice": true,
- "out": "dragonrider_v2.mp4",
+ "out": "dragonrider_v2b.mp4",
  "shots": [
   {
    "still": "drg2_bg_castle_drg2_bg_castle_00001_.png",
@@ -37,6 +37,11 @@
    "start": [
     1,
     "before"
+   ],
+   "crop": [
+    0.12,
+    0.08,
+    0.8
    ]
   },
   {
@@ -63,6 +68,11 @@
    "start": [
     2,
     ""
+   ],
+   "crop": [
+    0.2,
+    0.21,
+    0.62
    ]
   },
   {
@@ -177,6 +187,11 @@
      "pop",
      0.05
     ]
+   ],
+   "crop": [
+    0.17,
+    0.2,
+    0.64
    ]
   },
   {

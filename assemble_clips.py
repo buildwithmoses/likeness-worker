@@ -23,7 +23,9 @@ for i in range(1, plan["n_vo"] + 1):
         srcpath = f"{plan['voice_dir']}/vo{i}.wav"
     else:
         srcpath = OUT + "/" + sorted(f for f in os.listdir(OUT) if f.startswith(f"{pre}_vo{i}_{pre}_vo{i}_") and f.endswith(".flac"))[-1]
-    wav = f"{work}/vo{i}.wav"; sh("ffmpeg", "-v", "error", "-y", "-i", srcpath, "-ar", "48000", "-ac", "1", wav)
+    # TTS pads each file with ~0.75 s of silence; trim both ends so plan["gap"] is the only pause between paragraphs
+    trim = "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,apad=pad_dur=0.08"
+    wav = f"{work}/vo{i}.wav"; sh("ffmpeg", "-v", "error", "-y", "-i", srcpath, "-af", trim, "-ar", "48000", "-ac", "1", wav)
     starts.append(t); paras.append(wav); t += dur_of(wav) + plan["gap"]
 total = t
 sil = f"{work}/gap.wav"
@@ -86,8 +88,11 @@ for i, s in enumerate(plan["shots"]):
            "-t", f"{d:.3f}", "-c:v", "libx264", "-preset", "fast", "-crf", "17", c)
         clips.append(c); continue
     if "still" in s:  # still picture held for the whole slot: no zoom, no motion
+        cx = ""
+        if "crop" in s:   # fixed tighter framing [x0, y0, width] as fractions (16:9 kept); NOT a zoom, the frame never moves
+            x0, y0, cw = s["crop"]; cx = f"crop=iw*{cw}:ih*{cw}:iw*{x0}:ih*{y0},"
         sh("ffmpeg", "-v", "error", "-y", "-loop", "1", "-i", f"{IMG}/{s['still']}", "-vf",
-           f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps=30,format=yuv420p",
+           f"{cx}scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps=30,format=yuv420p",
            "-t", f"{slot:.3f}", "-c:v", "libx264", "-preset", "fast", "-crf", "17", c)
         clips.append(c); continue
     src = sorted(f for f in os.listdir(OUT) if f.startswith(f"{pre}_anim_{s['clip']}_") and f.endswith(".mp4"))[-1]
