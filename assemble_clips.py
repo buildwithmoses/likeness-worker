@@ -8,6 +8,16 @@ its slot), Nick-Invests-style phrase captions, loudness-normalised. No GPU, no c
 import json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
 
+def _font(size, *prefs):
+    """The first font that exists: the Mac faces the pilots used, then the Linux ones the worker image ships."""
+    import os as _os
+    cands = list(prefs) + ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                           "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"]
+    for c in cands:
+        if _os.path.exists(c):
+            return ImageFont.truetype(c, size)
+    return ImageFont.load_default()
+
 P = sys.argv[1]; plan = json.load(open(f"{P}/plan.json"))
 OUT = "outputs"; pre = plan["prefix"]
 W, H = plan.get("size", [1280, 720])
@@ -52,26 +62,10 @@ def at(spec):
     raise SystemExit(f"cue {cue!r} not found in paragraph {para}")
 
 cuts = [at(s["start"]) for s in plan["shots"]] + [total]
-# 3. clips: scale to 1280x720 (no zoom), stretch <=1.35x then hold last frame to fill the slot
+# 3. clips: scale to the output size (no zoom), stretch <=1.35x then hold last frame to fill the slot
 clips = []
 for i, s in enumerate(plan["shots"]):
     slot = cuts[i + 1] - cuts[i]; c = f"{work}/clip{i:02d}.mp4"
-    if "bg" in s:  # puppet shot: keyed green-screen character moving over a still background
-        mv = s["move"]; d = slot
-        fgf = "colorkey=0x00FF00:0.30:0.08,despill=type=green"
-        if mv == "fly_left": fgf += ",hflip"
-        size = "scale=-1:420" if mv in ("walk", "tremble") else "scale=1000:-1"
-        pos = {"walk":     f"x='-w+(W*0.62+w)*t/{d:.3f}':y='H-h-30+6*abs(sin(t*6))'",
-               "tremble":  "x='W*0.16+4*sin(t*45)':y='H-h-20+2*sin(t*53)'",
-               "fly":      f"x='-w+(W+w)*t/{d:.3f}':y='70+45*sin(t*1.6)'",
-               "fly_left": f"x='W-(W+w)*t/{d:.3f}':y='90+45*sin(t*1.6)'"}[mv]
-        crop = ",crop=iw*0.62:ih:iw*0.19:0" if mv in ("walk", "tremble") else ""
-        sh("ffmpeg", "-v", "error", "-y", "-loop", "1", "-t", f"{d:.3f}", "-i", f"{OUT}/{s['bg']}",
-           "-loop", "1", "-t", f"{d:.3f}", "-i", f"{OUT}/{s['fg']}", "-filter_complex",
-           f"[0:v]scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,setsar=1[b];"
-           f"[1:v]scale=1280:720,{fgf}{crop},{size}[f];[b][f]overlay={pos}:shortest=1,fps=30,format=yuv420p",
-           "-t", f"{d:.3f}", "-c:v", "libx264", "-preset", "fast", "-crf", "17", c)
-        clips.append(c); continue
     if "bg" in s:  # puppet shot: green-screen character keyed out and moved over a still background (no zoom)
         mv = s["move"]; d = slot
         fgf = "colorkey=0x00FF00:0.30:0.08,despill=type=green" + (",hflip" if mv == "fly_left" else "")
@@ -126,9 +120,10 @@ labels = []
 for i, sh_ in enumerate(plan["shots"]):
     for k, lb in enumerate(sh_.get("labels", [])):
         from PIL import Image, ImageDraw, ImageFont
-        fnt = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", int(H * 0.055))
+        fnt = _font(int(H * 0.055), "/System/Library/Fonts/Supplemental/Arial Bold.ttf")
         im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         tx, ty = lb["x"] * W, lb["y"] * H; tw = d.textlength(lb["text"], font=fnt)
+        tx = min(max(tx, tw / 2 + W * 0.03), W - tw / 2 - W * 0.03)   # keep the whole label inside the frame
         d.text((tx - tw / 2, ty), lb["text"], font=fnt, fill="black", stroke_width=int(H * 0.006), stroke_fill="white")
         if "arrow" in lb:   # simple thick arrow from under the label to the target point
             x2, y2 = lb["arrow"][0] * W, lb["arrow"][1] * H; x1, y1 = tx, ty + H * 0.075
@@ -138,14 +133,31 @@ for i, sh_ in enumerate(plan["shots"]):
             d.polygon([(x2, y2), (x2 - L * math.cos(a - 0.45), y2 - L * math.sin(a - 0.45)),
                        (x2 - L * math.cos(a + 0.45), y2 - L * math.sin(a + 0.45))], fill="black")
         path = f"{work}/label{i:02d}_{k}.png"; im.save(path)
-        labels.append((path, cuts[i] + lb["at"], cuts[i + 1]))
+        # a short shot can end before lb["at"]: pull the label earlier so it still shows for >= 1 s (or the whole shot)
+        a = max(cuts[i], min(cuts[i] + lb["at"], cuts[i + 1] - 1.0))
+        labels.append((path, a, cuts[i + 1]))
 src_v = f"{work}/video.mp4"
 if labels:
-    args = ["-i", src_v]; chain, last = [], "[0:v]"
-    for n, (pth, a, b) in enumerate(labels):
-        args += ["-i", pth]; out = f"[l{n}]"
-        chain.append(f"{last}[{n+1}:v]overlay=0:0:enable='between(t,{a:.3f},{b:.3f})'{out}"); last = out
-    sh("ffmpeg", "-v", "error", "-y", *args, "-filter_complex", ";".join(chain), "-map", last,
+    # One full-frame transparent label track: for every stretch of time, the labels on screen are composited into
+    # one PNG; the stretches are concatenated and overlaid once. (Per-label overlays either drop labels, take
+    # 15 min for 8 minutes, or deadlock when each input is time-shifted.)
+    edges = sorted({0.0, total, *[e for _, a, b in labels for e in (a, b)]})
+    blank = Image.new("RGBA", (W, H), (0, 0, 0, 0)); lines = []
+    for k in range(len(edges) - 1):
+        t0, t1 = edges[k], edges[k + 1]
+        if t1 - t0 < 0.001: continue
+        on = [p for p, a, b in labels if a <= t0 + 1e-6 and b >= t1 - 1e-6]
+        frame = f"{work}/labeltrack_{k:03d}.png"
+        im = blank.copy()
+        for p in on: im = Image.alpha_composite(im, Image.open(p).convert("RGBA"))
+        im.save(frame); lines += [f"file '{os.path.abspath(frame)}'", f"duration {t1 - t0:.3f}"]
+    lines.append(lines[-2])
+    open(f"{work}/labels.txt", "w").write("\n".join(lines) + "\n")
+    # render the track to its own file first: overlaying the concat input directly silently drops all but the first label
+    sh("ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/labels.txt",
+       "-vf", "fps=30,format=argb", "-c:v", "qtrle", f"{work}/labeltrack.mov")
+    sh("ffmpeg", "-v", "error", "-y", "-i", src_v, "-i", f"{work}/labeltrack.mov",
+       "-filter_complex", "[0:v][1:v]overlay=0:0:eof_action=pass[v]", "-map", "[v]",
        "-c:v", "libx264", "-preset", "fast", "-crf", "17", f"{work}/video_labels.mp4")
     src_v = f"{work}/video_labels.mp4"
 if not plan.get("captions", True):   # Wallace-style videos have no captions
@@ -155,26 +167,35 @@ if not plan.get("captions", True):   # Wallace-style videos have no captions
        "-c:a", "aac", "-b:a", "192k", "-shortest", final)
     print(f"done: {final}  ({total:.1f}s, {len(clips)} clips, {len(labels)} labels, {len(hits)} sfx, {W}x{H}, no captions)"); sys.exit(0)
 # 4. captions like the reference: short phrases (<=7 words, break at punctuation), condensed bold white, black outline
-font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Impact.ttf", 38)
+font = _font(round(H * 0.053), "/System/Library/Fonts/Supplemental/Impact.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")   # 38 px at 720p
 chunks, cur = [], []
 for w in words:
     cur.append(w)
     if len(cur) >= 7 or w["word"].rstrip().endswith((".", "?", "!", ",")):
         chunks.append(cur); cur = []
 if cur: chunks.append(cur)
+CAP_H = round(H * 0.125)
 caps = []
 for ci, ch in enumerate(chunks):
     nxt = chunks[ci + 1][0]["start"] if ci + 1 < len(chunks) else ch[-1]["end"] + 0.4
     txt = "".join(w["word"] for w in ch).strip().lower().rstrip(",")
-    im = Image.new("RGBA", (W, 90), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    d.text(((W - d.textlength(txt, font=font)) / 2, 20), txt, font=font, fill="white", stroke_width=3, stroke_fill="black")
+    im = Image.new("RGBA", (W, CAP_H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.text(((W - d.textlength(txt, font=font)) / 2, CAP_H * 0.22), txt, font=font, fill="white", stroke_width=round(H / 240), stroke_fill="black")
     path = f"{work}/cap{ci:03d}.png"; im.save(path)
     caps.append((path, ch[0]["start"], min(nxt, ch[-1]["end"] + 0.35)))
-inputs = ["-i", f"{work}/video.mp4", "-i", f"{work}/vo.wav"]
-for c in caps: inputs += ["-i", c[0]]
-chain, last = [], "[0:v]"
-for n, (_, a, b) in enumerate(caps):
-    out = f"[v{n}]"; chain.append(f"{last}[{n + 2}:v]overlay=0:H-150:enable='between(t,{a:.3f},{b:.3f})'{out}"); last = out
+# One transparent caption track (concat of the caption PNGs with blanks in the gaps), overlaid once.
+# Overlaying each caption PNG separately fails past a few hundred inputs (an 8-minute video has ~400).
+blank = f"{work}/cap_blank.png"; Image.new("RGBA", (W, CAP_H), (0, 0, 0, 0)).save(blank)
+lines, t = [], 0.0
+for pth, a, b in caps:
+    if a > t + 0.001: lines += [f"file '{os.path.abspath(blank)}'", f"duration {a - t:.3f}"]
+    a = max(a, t); lines += [f"file '{os.path.abspath(pth)}'", f"duration {max(b - a, 0.04):.3f}"]; t = max(b, a + 0.04)
+lines += [f"file '{os.path.abspath(blank)}'", f"duration {max(total - t, 0.04):.3f}", f"file '{os.path.abspath(blank)}'"]
+open(f"{work}/caps.txt", "w").write("\n".join(lines) + "\n")
+sh("ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/caps.txt",
+   "-vf", "fps=30,format=argb", "-c:v", "qtrle", f"{work}/captrack.mov")   # own file first, as with the labels
+inputs = ["-i", src_v, "-i", f"{work}/vo.wav", "-i", f"{work}/captrack.mov"]
+chain, last = [f"[0:v][2:v]overlay=0:H-{round(H * 0.21)}:eof_action=pass[vcap]"], "[vcap]"
 final = f"{P}/{plan['out']}"
 sh("ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", ";".join(chain), "-map", last, "-map", "1:a",
    "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:v", "libx264", "-preset", "medium", "-crf", "18",

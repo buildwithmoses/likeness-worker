@@ -55,7 +55,17 @@ sh("ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/c
 # 4. captions: 3-word chunks drawn as transparent PNGs (this ffmpeg has no libass/drawtext),
 #    white bold with black outline in the lower third like the reference, overlaid at their word times
 from PIL import Image, ImageDraw, ImageFont
-font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Black.ttf", 40)
+
+def _font(size, *prefs):
+    """The first font that exists: the Mac faces the pilots used, then the Linux ones the worker image ships."""
+    import os as _os
+    cands = list(prefs) + ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                           "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"]
+    for c in cands:
+        if _os.path.exists(c):
+            return ImageFont.truetype(c, size)
+    return ImageFont.load_default()
+font = _font(40, "/System/Library/Fonts/Supplemental/Arial Black.ttf")
 # Whisper splits "$1,000" into "$1" + ",000": glue any token without a leading space onto the previous word
 cw = []
 for w in words:

@@ -14,6 +14,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def api_key():
+    """The RunPod key: the environment on a worker (PS_RUNPOD_KEY / RUNPOD_API_KEY), the macOS Keychain on the Mac."""
+    for k in ("PS_RUNPOD_KEY", "RUNPOD_API_KEY"):
+        if os.environ.get(k, "").strip():
+            return os.environ[k].strip()
     return subprocess.check_output(
         ["security", "find-generic-password", "-s", "runpod-api", "-w"], text=True).strip()
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run workflows against ComfyUI on a RunPod *pod* (not the serverless endpoint).
 
-    python3 comfy_pod.py POD_ID jobs.json [--keep]   # jobs.json: [{"workflow": "...", "set": {...}, "tag": "..."}]
+    python3 comfy_pod.py POD_ID jobs.json [--keep] [--skip-existing]   # jobs.json: [{"workflow": "...", "set": {...}, "tag": "..."}]
 
 By default the pod is TERMINATED when the batch ends (success, failure or Ctrl-C), so a finished
 batch can never sit idle and bill. Pass --keep only when another batch follows immediately.
@@ -20,7 +20,8 @@ def terminate_pod():
     """DELETE the pod through RunPod's REST API (key from the macOS Keychain), then confirm it's gone."""
     if KEEP:
         print(f"--keep: pod {POD} left RUNNING (it bills until terminated)", flush=True); return
-    key = subprocess.check_output(["security", "find-generic-password", "-s", "runpod-api", "-w"], text=True).strip()
+    key = (os.environ.get("PS_RUNPOD_KEY") or os.environ.get("RUNPOD_API_KEY") or "").strip() or \
+        subprocess.check_output(["security", "find-generic-password", "-s", "runpod-api", "-w"], text=True).strip()
     hdr = {"Authorization": f"Bearer {key}", "User-Agent": "likeness-worker/1.0"}
     try:
         urllib.request.urlopen(urllib.request.Request(f"https://rest.runpod.io/v1/pods/{POD}", method="DELETE", headers=hdr), timeout=60)
@@ -38,20 +39,29 @@ BASE = f"https://{POD}-8188.proxy.runpod.net"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def req(path, body=None):
-    r = urllib.request.Request(BASE + path, data=json.dumps(body).encode() if body else None,
-                               headers={"Content-Type": "application/json",
-                                        # RunPod's proxy 403s the default Python-urllib agent
-                                        "User-Agent": "likeness-worker/1.0"})
-    with urllib.request.urlopen(r, timeout=60) as f:
-        return f.read()
+def req(path, body=None, tries=6):
+    """One ComfyUI API call. Transient network errors are retried: one reset connection killed a
+    205-job batch on 2026-10-14. HTTP errors (a rejected workflow) are raised at once."""
+    for k in range(tries):
+        r = urllib.request.Request(BASE + path, data=json.dumps(body).encode() if body else None,
+                                   headers={"Content-Type": "application/json",
+                                            # RunPod's proxy 403s the default Python-urllib agent
+                                            "User-Agent": "likeness-worker/1.0"})
+        try:
+            with urllib.request.urlopen(r, timeout=60) as f:
+                return f.read()
+        except urllib.error.HTTPError:
+            raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError, OSError) as e:
+            if k == tries - 1: raise
+            print(f"  network error on {path.split('?')[0]} ({e}); retry {k + 1}", flush=True); time.sleep(5 * (k + 1))
 
 
-def wait_ready(limit=1800):
+def wait_ready(limit=int(os.environ.get("COMFY_WAIT", 1800))):
     t0 = time.time()
     while time.time() - t0 < limit:
         try:
-            req("/system_stats"); print(f"ComfyUI up after {int(time.time()-t0)}s", flush=True); return
+            req("/system_stats", tries=1); print(f"ComfyUI up after {int(time.time()-t0)}s", flush=True); return
         except Exception as e:
             print(f"  waiting for ComfyUI: {e}", flush=True)
             time.sleep(10)
@@ -72,7 +82,11 @@ def upload(path):
 
 wait_ready()
 total = 0.0
+SKIP = "--skip-existing" in sys.argv   # resume a batch: jobs whose output is already in outputs/ are skipped
+done = set(os.listdir(os.path.join(HERE, "outputs"))) if SKIP else set()
 for j in JOBS:
+    if SKIP and any(f.startswith(j["tag"] + "_") and "ComfyUI_temp" not in f for f in done):
+        continue
     wf = json.load(open(os.path.join(HERE, j["workflow"])))
     for target, val in j.get("set", {}).items():
         node, inp = target.split(".", 1); wf[node]["inputs"][inp] = val
