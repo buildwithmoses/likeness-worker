@@ -82,11 +82,17 @@ def upload(path):
 
 wait_ready()
 total = 0.0
+MAX_MIN = float(os.environ.get("COMFY_MAX_MINUTES", 30))
+batch_t0 = time.time()
 SKIP = "--skip-existing" in sys.argv   # resume a batch: jobs whose output is already in outputs/ are skipped
 done = set(os.listdir(os.path.join(HERE, "outputs"))) if SKIP else set()
 for j in JOBS:
     if SKIP and any(f.startswith(j["tag"] + "_") and "ComfyUI_temp" not in f for f in done):
         continue
+    if (time.time() - batch_t0) / 60 > MAX_MIN:
+        print(f"!! {MAX_MIN:.0f}-minute cap reached; stopping before {j['tag']}. Re-run later with --skip-existing for the rest.", flush=True)
+        KEEP = False   # whatever was asked, a capped run never leaves a pod billing
+        break
     wf = json.load(open(os.path.join(HERE, j["workflow"])))
     for target, val in j.get("set", {}).items():
         node, inp = target.split(".", 1); wf[node]["inputs"][inp] = val
