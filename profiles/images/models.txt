@@ -8,3 +8,5 @@ vae/qwen_image_vae.safetensors  https://huggingface.co/Comfy-Org/Qwen-Image_Comf
 # --- Qwen-Image-Edit 2511 Lightning (4/8-step speed-up LoRAs) ~1.7 GB
 loras/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors  https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors
 loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors  https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors
+# --- Wallace style LoRA (trained 2026-10-28 on 206 frames of youtube m8mAF3_fa9Q, base Qwen-Image, 1500 steps rank 16)
+loras/wallace_style.safetensors  https://github.com/buildwithmoses/likeness-worker/releases/download/wallace-lora-v1/wallace_style.safetensors
