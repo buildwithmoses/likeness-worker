@@ -5,7 +5,7 @@ its slot), Nick-Invests-style phrase captions, loudness-normalised. No GPU, no c
 
     python3 assemble_clips.py pilots/finance-002-simpsons
 """
-import json, os, subprocess, sys
+import glob, json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
 
 def _font(size, *prefs):
@@ -19,6 +19,7 @@ def _font(size, *prefs):
     return ImageFont.load_default()
 
 P = sys.argv[1]; plan = json.load(open(f"{P}/plan.json"))
+HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = "outputs"; pre = plan["prefix"]
 W, H = plan.get("size", [1280, 720])
 IMG = "outputs/up" if plan.get("upscaled") else OUT          # tools/upscale.sh writes 2x pictures to outputs/up
@@ -62,6 +63,18 @@ def at(spec):
     raise SystemExit(f"cue {cue!r} not found in paragraph {para}")
 
 cuts = [at(s["start"]) for s in plan["shots"]] + [total]
+if cuts[0] > 0.3:   # the picture track starts at 0: a late first shot pulls every picture, label and sfx early and drops the ending
+    raise SystemExit(f"shot 1 starts {cuts[0]:.1f}s into the voice; start it at [1, \"\"] so the opening words have a picture")
+
+def when(i, x):
+    """A label or sfx time inside shot i: seconds after the cut, or a word ("Krona") said from 1.5 s before the cut to the
+    shot's end (prefix match, so "man" finds "man-hunters"). A word Whisper misheard falls back to the cut, with a warning."""
+    if not isinstance(x, str): return x
+    for w in words:
+        if cuts[i] - 1.5 <= w["start"] < cuts[i + 1] and w["word"].strip(" ,.?!'\"").lower().startswith(x.lower()):
+            return max(0.0, w["start"] - 0.05 - cuts[i])
+    print(f"WARN  shot {i + 1}: {x!r} is not in the transcript near this shot; it lands on the cut", flush=True)
+    return 0.0
 # 3. clips: scale to the output size (no zoom), stretch <=1.35x then hold last frame to fill the slot
 clips = []
 for i, s in enumerate(plan["shots"]):
@@ -103,8 +116,12 @@ sh("ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{work}/c
 SFX = {"pop":    ["-f", "lavfi", "-i", "aevalsrc=exprs=0.7*sin(2*PI*t*(1100-7000*t))*exp(-t*35):s=48000:d=0.14"],
        "whoosh": ["-f", "lavfi", "-i", "anoisesrc=d=1.1:c=pink:r=48000,highpass=f=350,lowpass=f=2800,afade=t=in:d=0.45,afade=t=out:st=0.5:d=0.6,volume=0.55"],
        "fire":   ["-f", "lavfi", "-i", "anoisesrc=d=3.5:c=brown:r=48000,lowpass=f=900,tremolo=f=9:d=0.6,afade=t=in:d=0.6,afade=t=out:st=2.4:d=1.1,volume=0.5"]}
-hits = [(name, cuts[i] + off) for i, s in enumerate(plan["shots"]) for name, off in s.get("sfx", [])]
-hits += [("pop", cuts[i] + lb["at"]) for i, s in enumerate(plan["shots"]) for lb in s.get("labels", [])]
+# a real file in sfx/<name>.wav wins over the synthesized fallback above (the Wallace set: whoosh, whoosh_long, pop,
+# sparkle, ding, chime, thud, clang, boing, shatter, boom, record_scratch; teardown/m8mAF3_fa9Q/TEXT-AND-SFX.md)
+for _f in glob.glob(os.path.join(HERE, "sfx", "*.wav")):
+    SFX[os.path.splitext(os.path.basename(_f))[0]] = ["-i", _f]
+hits = [(name, cuts[i] + when(i, off)) for i, s in enumerate(plan["shots"]) for name, off in s.get("sfx", []) if name in SFX]
+hits += [("pop", cuts[i] + when(i, lb["at"])) for i, s in enumerate(plan["shots"]) for lb in s.get("labels", [])]
 if hits:
     vov = "1.0" if plan.get("voice", True) else "0"     # "voice": false = preview with SFX only (timing still from the VO)
     args, mix = ["-i", f"{work}/vo.wav"], [f"[0:a]volume={vov}[a0]"]
@@ -120,11 +137,21 @@ labels = []
 for i, sh_ in enumerate(plan["shots"]):
     for k, lb in enumerate(sh_.get("labels", [])):
         from PIL import Image, ImageDraw, ImageFont
-        fnt = _font(int(H * 0.055), "/System/Library/Fonts/Supplemental/Arial Bold.ttf")
         im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-        tx, ty = lb["x"] * W, lb["y"] * H; tw = d.textlength(lb["text"], font=fnt)
-        tx = min(max(tx, tw / 2 + W * 0.03), W - tw / 2 - W * 0.03)   # keep the whole label inside the frame
-        d.text((tx - tw / 2, ty), lb["text"], font=fnt, fill="black", stroke_width=int(H * 0.006), stroke_fill="white")
+        if lb.get("style") == "tag":
+            # the Wallace name tag: a small yellow rounded box, black marker lettering, top-left unless x/y say otherwise
+            fnt = _font(int(H * 0.042), "/System/Library/Fonts/Supplemental/Chalkboard.ttc", "/System/Library/Fonts/Supplemental/Comic Sans MS Bold.ttf",
+                        "/System/Library/Fonts/Supplemental/Arial Bold.ttf")
+            tx, ty = lb["x"] * W, lb["y"] * H; tw = d.textlength(lb["text"], font=fnt); px, py = H * 0.012, H * 0.006
+            tx = min(max(tx, tw / 2 + px + W * 0.02), W - tw / 2 - px - W * 0.02)
+            box = (tx - tw / 2 - px, ty - py, tx + tw / 2 + px, ty + H * 0.052 + py)
+            d.rounded_rectangle(box, radius=int(H * 0.012), fill=(255, 213, 74, 255), outline="black", width=max(2, int(H * 0.003)))
+            d.text((tx - tw / 2, ty), lb["text"], font=fnt, fill="black")
+        else:
+            fnt = _font(int(H * 0.055), "/System/Library/Fonts/Supplemental/Arial Bold.ttf")
+            tx, ty = lb["x"] * W, lb["y"] * H; tw = d.textlength(lb["text"], font=fnt)
+            tx = min(max(tx, tw / 2 + W * 0.03), W - tw / 2 - W * 0.03)   # keep the whole label inside the frame
+            d.text((tx - tw / 2, ty), lb["text"], font=fnt, fill="black", stroke_width=int(H * 0.006), stroke_fill="white")
         if "arrow" in lb:   # simple thick arrow from under the label to the target point
             x2, y2 = lb["arrow"][0] * W, lb["arrow"][1] * H; x1, y1 = tx, ty + H * 0.075
             d.line([(x1, y1), (x2, y2)], fill="black", width=int(H * 0.008))
@@ -134,8 +161,8 @@ for i, sh_ in enumerate(plan["shots"]):
                        (x2 - L * math.cos(a + 0.45), y2 - L * math.sin(a + 0.45))], fill="black")
         path = f"{work}/label{i:02d}_{k}.png"; im.save(path)
         # a short shot can end before lb["at"]: pull the label earlier so it still shows for >= 1 s (or the whole shot)
-        a = max(cuts[i], min(cuts[i] + lb["at"], cuts[i + 1] - 1.0))
-        labels.append((path, a, cuts[i + 1]))
+        a = max(cuts[i], min(cuts[i] + when(i, lb["at"]), cuts[i + 1] - 1.0))
+        labels.append((path, a, min(cuts[i + 1], a + lb.get("for", 2.5))))   # a label is up 1.5-3 s, not the whole shot
 src_v = f"{work}/video.mp4"
 if labels:
     # One full-frame transparent label track: for every stretch of time, the labels on screen are composited into
