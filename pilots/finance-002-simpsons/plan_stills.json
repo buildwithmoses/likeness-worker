@@ -1,7 +1,7 @@
 {
  "prefix": "simp002",
  "n_vo": 7,
- "gap": 0.35,
+ "gap": 0.25,
  "out": "finance_pilot_003_stills.mp4",
  "shots": [
   {
@@ -81,5 +81,10 @@
     ""
    ]
   }
+ ],
+ "upscaled": true,
+ "size": [
+  1920,
+  1080
  ]
 }
