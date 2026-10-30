@@ -57,9 +57,13 @@ for w in raw:  # glue "$1" + ",000"
 def at(spec):
     para, cue = spec; t0 = starts[para - 1]
     if not cue: return max(0.0, t0 - 0.05)
+    cue, _, k = cue.partition("#")   # "word#2" = the second time the word is said in this paragraph
+    k = int(k or 1)
     for w in words:
         if w["start"] >= t0 - 0.1 and w["word"].strip(" ,.?!").lower() == cue.lower():
-            return w["start"] - 0.05
+            k -= 1
+            if k == 0:
+                return w["start"] - 0.05
     raise SystemExit(f"cue {cue!r} not found in paragraph {para}")
 
 cuts = [at(s["start"]) for s in plan["shots"]] + [total]
@@ -121,7 +125,16 @@ SFX = {"pop":    ["-f", "lavfi", "-i", "aevalsrc=exprs=0.7*sin(2*PI*t*(1100-7000
 for _f in glob.glob(os.path.join(HERE, "sfx", "*.wav")):
     SFX[os.path.splitext(os.path.basename(_f))[0]] = ["-i", _f]
 hits = [(name, cuts[i] + when(i, off)) for i, s in enumerate(plan["shots"]) for name, off in s.get("sfx", []) if name in SFX]
-hits += [("pop", cuts[i] + when(i, lb["at"])) for i, s in enumerate(plan["shots"]) for lb in s.get("labels", [])]
+if plan.get("label_pops", True):   # Pete turns these off: a pop on every tag was too much
+    hits += [("pop", cuts[i] + when(i, lb["at"])) for i, s in enumerate(plan["shots"]) for lb in s.get("labels", [])]
+if plan.get("sfx_min_gap"):   # thin the sounds: keep the ones that matter most, never two closer than the gap
+    rank = {"boom": 0, "shatter": 0, "record_scratch": 0, "boing": 1, "whoosh": 2, "whoosh_long": 2}
+    kept = []
+    for name, at_s in sorted(hits, key=lambda h: (rank.get(h[0], 3), h[1])):
+        if all(abs(at_s - t) >= plan["sfx_min_gap"] for _, t in kept):
+            kept.append((name, at_s))
+    print(f"sfx: kept {len(kept)} of {len(hits)} (at least {plan['sfx_min_gap']} s apart)", flush=True)
+    hits = sorted(kept, key=lambda h: h[1])
 if hits:
     vov = "1.0" if plan.get("voice", True) else "0"     # "voice": false = preview with SFX only (timing still from the VO)
     args, mix = ["-i", f"{work}/vo.wav"], [f"[0:a]volume={vov}[a0]"]

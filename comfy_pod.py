@@ -77,12 +77,19 @@ def upload(path):
            f"\r\n--{boundary}\r\nContent-Disposition: form-data; name=\"overwrite\"\r\n\r\ntrue\r\n--{boundary}--\r\n".encode()
     r = urllib.request.Request(BASE + "/upload/image", data=body, headers={
         "Content-Type": f"multipart/form-data; boundary={boundary}", "User-Agent": "likeness-worker/1.0"})
-    urllib.request.urlopen(r, timeout=120).read()
+    for attempt in range(4):  # one flaky TLS write (2026-10-28: SSLError on a hero upload) must not end the batch
+        try:
+            urllib.request.urlopen(r, timeout=120).read(); return
+        except Exception as e:  # noqa: BLE001
+            if attempt == 3:
+                raise
+            print(f"  upload {name} failed ({e}); retry {attempt + 1}/3", flush=True); time.sleep(5 * (attempt + 1))
 
 
 wait_ready()
 total = 0.0
 MAX_MIN = float(os.environ.get("COMFY_MAX_MINUTES", 30))
+CAPPED = False
 batch_t0 = time.time()
 SKIP = "--skip-existing" in sys.argv   # resume a batch: jobs whose output is already in outputs/ are skipped
 done = set(os.listdir(os.path.join(HERE, "outputs"))) if SKIP else set()
@@ -92,6 +99,7 @@ for j in JOBS:
     if (time.time() - batch_t0) / 60 > MAX_MIN:
         print(f"!! {MAX_MIN:.0f}-minute cap reached; stopping before {j['tag']}. Re-run later with --skip-existing for the rest.", flush=True)
         KEEP = False   # whatever was asked, a capped run never leaves a pod billing
+        CAPPED = True
         break
     wf = json.load(open(os.path.join(HERE, j["workflow"])))
     for target, val in j.get("set", {}).items():
@@ -119,3 +127,5 @@ for j in JOBS:
             open(path, "wb").write(req(f"/view?{q}"))
     print(f"{j['tag']}: {dt:.1f}s", flush=True)
 print(f"TOTAL generation time {total:.0f}s over {len(JOBS)} jobs")
+if CAPPED:
+    sys.exit(3)   # the pod is gone: callers must not queue another batch on it

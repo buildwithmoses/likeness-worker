@@ -19,7 +19,9 @@ bad, cuts = 0, []
 for n, s in enumerate(plan["shots"]):
     para, cue = s["start"]; t0 = starts[para - 1]
     if not cue: cuts.append(t0); continue
-    hit = next((w["start"] for w in words if w["start"] >= t0 - 0.1 and w["word"].strip(" ,.?!").lower() == cue.lower()), None)
+    cw, _, k = cue.partition("#")   # "word#2" = the second time the word is said in this paragraph (assemble_clips.py)
+    hits = [w["start"] for w in words if w["start"] >= t0 - 0.1 and w["word"].strip(" ,.?!").lower() == cw.lower()]
+    hit = hits[int(k or 1) - 1] if len(hits) >= int(k or 1) else None
     if hit is None or (para < len(starts) and hit >= starts[para]):
         bad += 1; near = " ".join(w["word"] for w in words if t0 <= w["start"] < (starts[para] if para < len(starts) else t))
         print(f"shot {n}: cue {cue!r} not in paragraph {para}: {near[:160]}"); cuts.append(None); continue
