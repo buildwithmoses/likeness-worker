@@ -5,3 +5,5 @@ outputs/
 pilots/*/build/
 pilots/*/*.mp4
 pilots/*/voice-samples/
+__pycache__/
+*.pyc
